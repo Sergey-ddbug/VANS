@@ -24,4 +24,5 @@ yarn-error.log*
 
 # To stop pushing our package-lock files
 package-lock.json
+package.json
 /client/package-lock.json

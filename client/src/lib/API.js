@@ -8,22 +8,19 @@ export default {
                 password
             })
         },
-
         // creat a user
     },
 
     Meetings: {
-        // need a route that allows a user to create a meeting
-        create: function () {
-            return axios.post("/api/meetings")
+        createMeeting: function (meetingData) {
+            return axios.post("/api/meetings", meetingData)
         }
-
-        // need a route that updates a meeting 
     },
 
     Categories: {
         getCategories: function () {
             return axios.get('/api/categories')
         }
-    }
+    },
+
 }
