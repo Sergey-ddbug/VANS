@@ -60,7 +60,7 @@ const Login = () => {
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center loginContainer">
       <h4>Login</h4>
       {errorMsg ? <p>{errorMsg}</p> : null}
       <p></p>

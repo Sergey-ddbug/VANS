@@ -33,7 +33,7 @@ export function DropDownList(props) {
     return (
         <DropdownButton id="dropdown-basic-button" title="Pick a Category">
             {categories.map(item => (
-                <Dropdown.Item {...props} key={item.category_name} text={item.category_name} value={item.category_name}>{item.category_name}</Dropdown.Item>
+                <Dropdown.Item data-id={item.id} {...props} key={item.category_name} text={item.category_name} value={item.category_name}>{item.category_name}</Dropdown.Item>
             ))}
         </DropdownButton>
     )

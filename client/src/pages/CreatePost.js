@@ -8,8 +8,8 @@ const CreatePost = () => {
 
     const [formObject, setFormObject] = useState({
         postName: "",
-        categoryName: "",
-        dateTime: ""
+        categoryId: 0,
+        dateTime: "",
     })
 
     function handleInputChange(event) {
@@ -23,24 +23,26 @@ const CreatePost = () => {
     }
 
     function handleCategoryChange(eky, event) {
-        const value = event.currentTarget.innerText;
-        setFormObject({ ...formObject, categoryName: value })
+        const value = event.currentTarget.dataset.id;
+        console.log(value);
+        setFormObject({ ...formObject, categoryId: value })
     }
 
     useEffect(() => {
-        console.log(formObject.categoryName)
+        console.log(formObject.categoryId)
         console.log(formObject.dateTime)
         console.log(formObject.postName)
     }, [formObject])
 
     function handleFormSubmit(event) {
         event.preventDefault();
+        // TODO: add verification
+
         if (formObject.postName) {
-            // console.log("hello")
             API.Meetings.createMeeting({
-                postName: formObject.postName,
-                categoryName: formObject.categoryName,
-                dateTime: formObject.dateTime
+                meetingName: formObject.postName,
+                CategoryId: formObject.categoryId,
+                timeDate: formObject.dateTime
             })
                 .then(() => setFormObject({
                     postName: "",
@@ -82,7 +84,7 @@ const CreatePost = () => {
                         <DropDownList
                             onSelect={handleCategoryChange}
                             name="categoryName"
-                            value={formObject.categoryName}
+                            value={formObject.categoryId}
                         />
                     </label>
                 </fieldset>

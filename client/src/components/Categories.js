@@ -49,15 +49,27 @@ import { Tab, Nav, Row, Col } from 'react-bootstrap'
 
 function TabExampleVerticalTab() {
     const [categories, setCategories] = useState([])
+    const [meetings, setMeetings] = useState([])
 
     useEffect(() => {
-        loadCategories()
+        loadCategories();
+        loadMeetings();
     }, [])
 
     function loadCategories() {
         API.Categories.getCategories()
-            .then(res =>
+            .then(res => {
+                console.log("hi", res);
                 setCategories(res.data)
+            }
+            )
+            .catch(err => console.log("ERROR", err));
+    };
+
+    function loadMeetings() {
+        API.Meetings.getMeeting()
+            .then(res =>
+                setMeetings(res.data)
             )
             .catch(err => console.log("ERROR", err));
     };
@@ -73,7 +85,7 @@ function TabExampleVerticalTab() {
                                     <Nav.Link eventKey="all">All</Nav.Link>
                                 </Nav.Item>
                                 {categories.map(item => (
-                                    <Nav.Item>
+                                    <Nav.Item >
                                         <Nav.Link key={item.id} eventKey={item.category_name}>{item.category_name}</Nav.Link>
                                     </Nav.Item>
                                 ))}
@@ -134,7 +146,7 @@ function TabExampleVerticalTab() {
                     </Row>
                 </Tab.Container>
             </ul>
-        </div>
+        </div >
     );
 }
 
