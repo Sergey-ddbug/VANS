@@ -15,6 +15,8 @@ router.get('/', async (req, res) => {
     });
 
     if (user) {
+      req.session.user = user;
+      console.log("USER", user)
       res.json({ user });
       return;
     }
@@ -105,8 +107,9 @@ router.post('/login', function (req, res, next) {
 });
 
 router.get('/logout', function (req, res) {
-  req.logout();
-  res.redirect('/');
+  req.session.destroy(function (err) {
+    res.redirect('/');
+  });
 });
 
 module.exports = router;

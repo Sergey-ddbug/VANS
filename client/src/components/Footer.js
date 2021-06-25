@@ -25,6 +25,7 @@ const mainDiv = {
   // bottom: 0,
   // width: '100%'
 }
+
 function Footer({ children }) {
   return (
     <div style={mainDiv}>
