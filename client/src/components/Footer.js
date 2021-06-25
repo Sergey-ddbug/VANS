@@ -20,6 +20,7 @@ const phantom = {
 const mainDiv = {
   zIndex: 10
 }
+
 function Footer({ children }) {
   return (
     <div style={mainDiv}>

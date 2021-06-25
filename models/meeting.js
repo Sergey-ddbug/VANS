@@ -11,13 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Meeting.belongsTo(models.Category);
+      Meeting.belongsToMany(models.User, {
+        through: models.UserMeeting
+      });
     }
   };
   Meeting.init({
     meetingName: DataTypes.STRING,
     timeDate: DataTypes.DATE,
-    category_id: DataTypes.INTEGER,
-    host_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Meeting',

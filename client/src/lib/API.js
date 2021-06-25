@@ -14,6 +14,9 @@ export default {
     Meetings: {
         createMeeting: function (meetingData) {
             return axios.post("/api/meetings", meetingData)
+        },
+        getMeeting: function () {
+            return axios.get("/api/meetings/all")
         }
     },
 

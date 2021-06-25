@@ -2,7 +2,7 @@ const router = require('express').Router();
 const userRoutes = require('./user');
 const twilio = require('./twilio');
 const categories = require('./category');
-const meetings = require('./post');
+const meetings = require('./meetings');
 
 router.use('/users', userRoutes);
 router.use('/video', twilio);
