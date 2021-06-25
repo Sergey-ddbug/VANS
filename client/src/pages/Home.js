@@ -10,7 +10,7 @@ document.head.appendChild(styleLink);
 
 const Home = () => (
 	<>
-		<Container style={{ margin: 20 }}>
+		<Container className="flex-grow-1" style={{ margin: 20 }}>
 			<Jumbotron />
 			<Categories />
 		</Container >

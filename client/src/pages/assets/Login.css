@@ -1,0 +1,13 @@
+/* .loginContainer {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background-color: rosybrown;
+} */
+
+.loginContainer {
+  padding: 230px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}

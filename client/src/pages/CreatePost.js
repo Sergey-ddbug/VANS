@@ -53,7 +53,7 @@ const CreatePost = () => {
     };
 
     return (
-        <div className="wrapper">
+        <div className="text-center flex-grow-1" >
             <h1>Create Post</h1>
             <form>
                 <fieldset>
@@ -89,7 +89,7 @@ const CreatePost = () => {
                 <Button
                     // disabled={!(formObject.postName && formObject.dateTime && formObject.categoryName)}
                     onClick={handleFormSubmit}
-                    variant="primary">Submit</Button>
+                    variant="danger">Submit</Button>
             </form>
         </div>
     )

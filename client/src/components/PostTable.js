@@ -9,6 +9,7 @@ export default function PostTable(props) {
             <Table.HeaderCell>Post Name</Table.HeaderCell>
             <Table.HeaderCell>Post Date</Table.HeaderCell>
             <Table.HeaderCell>Category</Table.HeaderCell>
+
           </Table.Row>
         </Table.Header>
 

@@ -1,9 +1,10 @@
-import axios from "axios";
 import API from "../lib/API";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../store/actions";
 import { useStoreContext } from "../store/store";
+import '../pages/assets/Login.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const Login = () => {
   const [, /* state */ dispatch] = useStoreContext();
@@ -48,56 +49,99 @@ const Login = () => {
       console.log(err);
     }
 
-    // axios
-    //   .post('/api/users/login', {
-    //     email: loginCreds.email,
-    //     password: loginCreds.password,
-    //   })
-    //   .then((response) => {
-    //   })
-    //   .catch((error) => {
-    //   });
   };
 
   return (
-    <div className="text-center">
-      <h4>Login</h4>
-      {errorMsg ? <p>{errorMsg}</p> : null}
-      <p></p>
-      <form className="form-signin">
-        <label htmlFor="inputEmail" className="sr-only">
-          Email address
-        </label>
-        <input
-          type="email"
-          id="inputEmail"
-          className="form-control"
-          name="email"
-          placeholder="Email address"
-          value={loginCreds.email}
-          onChange={handleChange}
-        />
-        <label htmlFor="inputPassword" className="sr-only">
-          Password
-        </label>
-        <input
-          type="password"
-          id="inputPassword"
-          className="form-control"
-          name="password"
-          placeholder="Password"
-          value={loginCreds.password}
-          onChange={handleChange}
-        />
-        <button
-          className="btn btn-lg btn-secondary btn-block"
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Login
-        </button>
-      </form>
-    </div>
+
+    <Container className="flex-grow-1" >
+      <Row>
+        <Col>
+          <h4>Login</h4>
+          {errorMsg ? <p>{errorMsg}</p> : null}
+          <p></p>
+          <form className="form-signin">
+            <label htmlFor="inputEmail" className="sr-only">
+              Email address
+            </label>
+            <input
+              type="email"
+              id="inputEmail"
+              className="form-control"
+              name="email"
+              placeholder="Email address"
+              value={loginCreds.email}
+              onChange={handleChange}
+            />
+            <label htmlFor="inputPassword" className="sr-only">
+              Password
+            </label>
+            <input
+              type="password"
+              id="inputPassword"
+              className="form-control"
+              name="password"
+              placeholder="Password"
+              value={loginCreds.password}
+              onChange={handleChange}
+            />
+            <button
+              className="btn btn-lg btn-danger btn-block"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Login
+            </button>
+          </form>
+
+        </Col>
+        <Col>
+        </Col>
+      </Row>
+    </Container>
+
+
+
+    // <div className="text-center container loginContainer">
+
+    //   <h4>Login</h4>
+    //   {errorMsg ? <p>{errorMsg}</p> : null}
+    //   <p></p>
+    //   <form className="form-signin">
+    //     <label htmlFor="inputEmail" className="sr-only">
+    //       Email address
+    //     </label>
+    //     <input
+    //       type="email"
+    //       id="inputEmail"
+    //       className="form-control"
+    //       name="email"
+    //       placeholder="Email address"
+    //       value={loginCreds.email}
+    //       onChange={handleChange}
+    //     />
+    //     <label htmlFor="inputPassword" className="sr-only">
+    //       Password
+    //     </label>
+    //     <input
+    //       type="password"
+    //       id="inputPassword"
+    //       className="form-control"
+    //       name="password"
+    //       placeholder="Password"
+    //       value={loginCreds.password}
+    //       onChange={handleChange}
+    //     />
+    //     <button
+    //       className="btn btn-lg btn-danger btn-block"
+    //       type="submit"
+    //       onClick={handleSubmit}
+    //     >
+    //       Login
+    //     </button>
+    //   </form>
+
+    // </div>
+
   );
 };
 
