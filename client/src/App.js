@@ -2,7 +2,6 @@ import axios from 'axios';
 import { isNil } from 'lodash';
 import React, { useEffect } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
-// import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/SignUp';
@@ -31,8 +30,12 @@ const App = () => {
     });
   }, [dispatch, history]);
 
+  const largeContainer = {
+    height: '100vh'
+  }
+
   return (
-    <div>
+    <div style={largeContainer} className="d-flex flex-column">
       <Header />
       {state.user ? (
         <Switch>
@@ -48,7 +51,7 @@ const App = () => {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/twilio" component={TwilioTest} />
 
-            <Redirect to="/login" />
+            <Redirect to="/" />
           </Switch>
 
         )}

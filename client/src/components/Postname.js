@@ -17,7 +17,6 @@ export function DateTime(props) {
 
 export function DropDownList(props) {
     const [categories, setCategories] = useState([])
-
     useEffect(() => {
         loadCategories()
     }, [])
@@ -30,8 +29,13 @@ export function DropDownList(props) {
             .catch(err => console.log("ERROR", err));
     };
 
+    const selectButton = e => {
+        console.log("here")
+        console.log(e)
+    }
+
     return (
-        <DropdownButton id="dropdown-basic-button" title="Pick a Category">
+        <DropdownButton onSelect={e => selectButton(e)} id="dropdown-basic-button" title={props.titleValue}>
             {categories.map(item => (
                 <Dropdown.Item data-id={item.id} {...props} key={item.category_name} text={item.category_name} value={item.category_name}>{item.category_name}</Dropdown.Item>
             ))}
