@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 
 const Profile = () => (
+    //TODO: handle case for if no hosted meetings or added meetings--- terinary oporator!!!
     <Container>
         <Row>
             <Col>
