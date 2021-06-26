@@ -4,19 +4,20 @@ import { Tab, Nav, Row, Col } from 'react-bootstrap'
 
 
 function TabExampleVerticalTab() {
-  const [categories, setCategories] = useState([])
+  const [futureNonHost, setfutureNonHost] = useState([])
 
   useEffect(() => {
-    loadCategories()
+    loadFuture()
   }, [])
 
-  function loadCategories() {
-    API.Categories.getCategories()
+  function loadFuture() {
+    API.Meetings.getFutureNonHost()
       .then(res =>
-        setCategories(res.data)
+        setfutureNonHost(res.data.Meetings)
       )
       .catch(err => console.log("ERROR", err));
   };
+
 
   return (
     <div>
@@ -27,26 +28,17 @@ function TabExampleVerticalTab() {
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="all">
-                  <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                    <h3>Event Name</h3>
-                    <p>Yoga</p>
-                    <p>Host Name</p>
-                    <p>Time/Date</p>
-                    <button>Join</button>
-                  </div>
-                </Tab.Pane>
-                {/* {categories.map(item => (
-                  <Tab.Pane key={item.id} eventKey={item.category_name}>
-                    <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                      <h3>Event Name</h3>
-                      <p>{item.category_name}</p>
-                      <p>Host Name</p>
-                      <p>Time/Date</p>
+                  {futureNonHost.map(item => (
+                    <div key={item.meetingId} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                      <h3>{item.meetingName}</h3>
+                      <p>{item.Category.category_name}</p>
+                      <p>{item.Users[0].first_name}</p>
+                      <p>{item.timeDate}</p>
                       <button>Join</button>
+                      <button>Delete</button>
                     </div>
-
-                  </Tab.Pane>
-                ))} */}
+                  ))}
+                </Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>

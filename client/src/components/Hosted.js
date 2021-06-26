@@ -4,16 +4,17 @@ import { Tab, Row, Col } from 'react-bootstrap'
 
 
 function TabExampleVerticalTab() {
-  const [categories, setCategories] = useState([])
+  const [hostMeetings, setHostMeetings] = useState([])
+
 
   useEffect(() => {
-    loadCategories()
+    loadHostMeetings()
   }, [])
 
-  function loadCategories() {
-    API.Categories.getCategories()
+  function loadHostMeetings() {
+    API.Meetings.getHostMeetings()
       .then(res =>
-        setCategories(res.data)
+        setHostMeetings(res.data.Meetings)
       )
       .catch(err => console.log("ERROR", err));
   };
@@ -23,30 +24,20 @@ function TabExampleVerticalTab() {
       <ul>
         <Tab.Container id="left-tabs-example" defaultActiveKey="all">
           <Row>
-
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="all">
-                  <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                    <h3>Event Name</h3>
-                    <p>Yoga</p>
-                    <p>Host Name</p>
-                    <p>Time/Date</p>
-                    <button>Edit</button>
-                  </div>
-                </Tab.Pane>
-                {/* {categories.map(item => (
-                  <Tab.Pane key={item.id} eventKey={item.category_name}>
-                    <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                      <h3>Event Name</h3>
-                      <p>{item.category_name}</p>
-                      <p>Host Name</p>
-                      <p>Time/Date</p>
-                      <button>Edit</button>
+                  {hostMeetings.map(item => (
+                    <div key={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                      <h3>{item.meetingName}</h3>
+                      <p>{item.Category.category_name}</p>
+                      <p>{item.Users[0].first_name}</p>
+                      <p>{item.timeDate}</p>
+                      <button>Join</button>
+                      <button>Delete</button>
                     </div>
-
-                  </Tab.Pane>
-                ))} */}
+                  ))}
+                </Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>

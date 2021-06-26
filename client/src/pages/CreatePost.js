@@ -37,7 +37,7 @@ const CreatePost = () => {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        // TODO: add verification
+        // TODO: add verification to make sure input fields are all checked
 
         if (formObject.postName) {
             API.Meetings.createMeeting({
@@ -50,7 +50,6 @@ const CreatePost = () => {
                     categoryName: "",
                     dateTime: ""
                 }))
-                // .then(() => loadBooks())
                 .catch(err => console.log(err));
         }
     };

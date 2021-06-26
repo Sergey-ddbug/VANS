@@ -17,7 +17,16 @@ export default {
         },
         getMeeting: function () {
             return axios.get("/api/meetings/all")
-        }
+        },
+        addMeetingsJoin: function (meetingData) {
+            return axios.post("/api/meetings/addAJoin", meetingData)
+        },
+        getFutureNonHost: function () {
+            return axios.get("/api/meetings/future/nonhost")
+        },
+        getHostMeetings: function () {
+            return axios.get("/api/meetings/host")
+        },
     },
 
     Categories: {
