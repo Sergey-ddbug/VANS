@@ -11,6 +11,7 @@ const CreatePost = () => {
         categoryId: 0,
         dateTime: "",
     })
+    const [dropDownButtonTitle, setDropDownButtonTitle] = useState("Pick a Category")
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -24,7 +25,7 @@ const CreatePost = () => {
 
     function handleCategoryChange(eky, event) {
         const value = event.currentTarget.dataset.id;
-        console.log(value);
+        setDropDownButtonTitle(event.currentTarget.text)
         setFormObject({ ...formObject, categoryId: value })
     }
 
@@ -55,7 +56,7 @@ const CreatePost = () => {
     };
 
     return (
-        <div className="wrapper">
+        <div className="text-center flex-grow-1" >
             <h1>Create Post</h1>
             <form>
                 <fieldset>
@@ -85,13 +86,14 @@ const CreatePost = () => {
                             onSelect={handleCategoryChange}
                             name="categoryName"
                             value={formObject.categoryId}
+                            titleValue={dropDownButtonTitle}
                         />
                     </label>
                 </fieldset>
                 <Button
                     // disabled={!(formObject.postName && formObject.dateTime && formObject.categoryName)}
                     onClick={handleFormSubmit}
-                    variant="primary">Submit</Button>
+                    variant="danger">Submit</Button>
             </form>
         </div>
     )

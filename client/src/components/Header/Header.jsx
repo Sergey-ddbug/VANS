@@ -37,7 +37,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header col-lg-12 ">
+    <div className="header">
       <div className="logo-nav">
         <div className="logo-container">
           <img src={logo} />

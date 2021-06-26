@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import '../pages/style.css';
 
 const SignUp = () => {
   const history = useHistory();
@@ -37,7 +38,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="text-center">
+
+    <div className="text-center signContainer flex-grow-1">
       <h4>Sign Up</h4>
       <form className="form-signin">
         <label htmlFor="inputfirstName" className="sr-only">
@@ -78,7 +80,7 @@ const SignUp = () => {
           onChange={handleChange}
         />
         <button
-          className="btn btn-lg btn-primary btn-block"
+          className="btn btn-lg btn-danger btn-block"
           type="submit"
           onClick={handleSubmit}
         >
