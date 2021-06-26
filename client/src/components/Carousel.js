@@ -9,6 +9,7 @@ export default function ControlledCarousel() {
   };
 
   return (
+
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
@@ -49,5 +50,6 @@ export default function ControlledCarousel() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+
   );
 }
