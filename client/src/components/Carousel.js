@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Carousel, Button } from 'react-bootstrap'
+import { Carousel, Button } from "react-bootstrap";
 
 export default function ControlledCarousel() {
   const [index, setIndex] = useState(0);
@@ -12,7 +12,7 @@ export default function ControlledCarousel() {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block mw-100"
           src="https://greaterriversidehispanicchamberofcommerce.org/wp-content/uploads/ZoomFatigue-scaled-e1614972364871-1980x990.jpg"
           alt="First slide"
         />
@@ -44,7 +44,10 @@ export default function ControlledCarousel() {
 
         <Carousel.Caption>
           <h3>Third slide label</h3>
-          <p> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <p>
+            {" "}
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
           <Button variant="danger">Learn More</Button>
         </Carousel.Caption>
       </Carousel.Item>
