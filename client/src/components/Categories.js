@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import API from '../lib/API';
-import { Tab, Nav, Row, Col } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import API from "../lib/API";
+import { Tab, Nav, Row, Col } from "react-bootstrap";
 
 function TabExampleVerticalTab() {
-    const [categories, setCategories] = useState([])
-    const [meetings, setMeetings] = useState([])
+  const [categories, setCategories] = useState([]);
+  const [meetings, setMeetings] = useState([]);
 
-    useEffect(() => {
-        loadCategories();
-        loadMeetings();
-    }, [])
+  useEffect(() => {
+    loadCategories();
+    loadMeetings();
+  }, []);
+
 
     function loadCategories() {
         API.Categories.getCategories()
@@ -20,13 +21,12 @@ function TabExampleVerticalTab() {
             .catch(err => console.log("ERROR", err));
     };
 
-    function loadMeetings() {
-        API.Meetings.getMeeting()
-            .then(res =>
-                setMeetings(res.data)
-            )
-            .catch(err => console.log("ERROR", err));
-    };
+  function loadMeetings() {
+    API.Meetings.getMeeting()
+      .then((res) => setMeetings(res.data))
+      .catch((err) => console.log("ERROR", err));
+  }
+
 
     function handleJoinBtnClick(event) {
         const meetingId = event.target.parentNode.dataset.id;
@@ -86,9 +86,7 @@ function TabExampleVerticalTab() {
             </ul>
         </div >
     );
+
 }
 
 export default TabExampleVerticalTab;
-
-
-
