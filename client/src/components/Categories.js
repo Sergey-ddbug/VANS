@@ -29,6 +29,8 @@ function TabExampleVerticalTab() {
             .catch(err => console.log("ERROR", err));
     };
 
+    console.log(meetings)
+
     return (
         <div>
             <ul>
@@ -41,7 +43,7 @@ function TabExampleVerticalTab() {
                                 </Nav.Item>
                                 {categories.map(item => (
                                     <Nav.Item >
-                                        <Nav.Link key={item.id} eventKey={item.category_name}>{item.category_name}</Nav.Link>
+                                        <Nav.Link key={item.id} eventKey={item.id}>{item.category_name}</Nav.Link>
                                     </Nav.Item>
                                 ))}
                             </Nav>
@@ -49,47 +51,22 @@ function TabExampleVerticalTab() {
                         <Col sm={9}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="all">
-                                    <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3 ">
-                                        <h3>Event Name</h3>
-                                        <p>Yoga</p>
-                                        <p>Host Name</p>
-                                        <p>Time/Date</p>
-                                        <button>Add</button>
-                                    </div>
-                                    <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                        <h3>Event Name</h3>
-                                        <p>Meditation</p>
-                                        <p>Host Name</p>
-                                        <p>Time/Date</p>
-                                        <button>Add</button>
-                                    </div>
-                                    <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                        <h3>Event Name</h3>
-                                        <p>Web Development</p>
-                                        <p>Host Name</p>
-                                        <p>Time/Date</p>
-                                        <button>Add</button>
-                                    </div>
+                                    {meetings.map(item => (
+                                        <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                                            <h3>{item.meetingName}</h3>
+                                            <p>{item.CategoryId}</p>
+                                            <p>Host Name</p>
+                                            <p>{item.timeDate}</p>
+                                            <button>Add</button>
+                                        </div>
+                                    ))}
+
                                 </Tab.Pane>
-                                {categories.map(item => (
-                                    <Tab.Pane key={item.id} eventKey={item.category_name}>
+                                {meetings.map(item => (
+                                    <Tab.Pane key={item.id} eventKey={item.CategoryId}>
                                         <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
                                             <h3>Event Name</h3>
-                                            <p>{item.category_name}</p>
-                                            <p>Host Name</p>
-                                            <p>Time/Date</p>
-                                            <button>Add</button>
-                                        </div>
-                                        <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                            <h3>Event Name</h3>
-                                            <p>{item.category_name}</p>
-                                            <p>Host Name</p>
-                                            <p>Time/Date</p>
-                                            <button>Add</button>
-                                        </div>
-                                        <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                            <h3>Event Name</h3>
-                                            <p>{item.category_name}</p>
+                                            <p>{item.CategoryId}</p>
                                             <p>Host Name</p>
                                             <p>Time/Date</p>
                                             <button>Add</button>
