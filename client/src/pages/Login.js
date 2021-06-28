@@ -38,9 +38,9 @@ const Login = () => {
         setErrorMsg(response.data.message);
         return;
       }
-
+      console.log(response.data)
       if (response.status === 200) {
-        dispatch({ type: SET_USER, user: response.data });
+        dispatch({ type: SET_USER, user: response.data.dataValues });
         setErrorMsg(null);
         history.replace("/");
       }
@@ -63,9 +63,9 @@ const Login = () => {
           </Image>
         </Col>
         <Col>
-          <form className="form-signin loginbox">
+          <form className="form-signin box">
             <h4>Login</h4>
-            {errorMsg ? <p>{errorMsg}</p> : null}
+            {errorMsg ? <p style={{ color: 'red' }}>{errorMsg}</p> : null}
             <p></p>
             <label htmlFor="inputEmail" className="sr-only">
               Email address
