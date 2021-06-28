@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import API from '../lib/API';
-import { Tab, Nav, Row, Col } from 'react-bootstrap';
-// import '../pages/assets/Login.css';
+import React, { useEffect, useState } from "react";
+import API from "../lib/API";
+import { Tab, Nav, Row, Col } from "react-bootstrap";
 
 function TabExampleVerticalTab() {
-    const [categories, setCategories] = useState([])
-    const [meetings, setMeetings] = useState([])
+    const [categories, setCategories] = useState([]);
+    const [meetings, setMeetings] = useState([]);
 
     useEffect(() => {
         loadCategories();
         loadMeetings();
-    }, [])
+    }, []);
+
 
     function loadCategories() {
         API.Categories.getCategories()
             .then(res => {
-                console.log("hi", res);
                 setCategories(res.data)
             }
             )
@@ -24,13 +23,21 @@ function TabExampleVerticalTab() {
 
     function loadMeetings() {
         API.Meetings.getMeeting()
-            .then(res =>
-                setMeetings(res.data)
-            )
-            .catch(err => console.log("ERROR", err));
-    };
+            .then((res) => {
+                console.log(res.data);
+                setMeetings(res.data);
+            })
+            .catch((err) => console.log("ERROR", err));
+    }
 
-    console.log(meetings)
+
+    function handleJoinBtnClick(event) {
+        const meetingId = event.target.parentNode.dataset.id;
+        API.Meetings.addMeetingsJoin({
+            MeetingId: meetingId,
+        })
+            .catch(err => console.log("ERROR", err));
+    }
 
     return (
         <div className="test3">
@@ -53,26 +60,30 @@ function TabExampleVerticalTab() {
                             <Tab.Content>
                                 <Tab.Pane eventKey="all">
                                     {meetings.map(item => (
-                                        <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                            <h3>{item.meetingName}</h3>
-                                            <p>{item.CategoryId}</p>
-                                            <p>Host Name</p>
+                                        <div data-id={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                                            <h3>Event Name</h3>
+                                            <p>{item.Category.category_name}</p>
+                                            <p>{item.Users[0].first_name}</p>
                                             <p>{item.timeDate}</p>
-                                            <button className="btn btn-danger btn-md"
-                                            >Add</button>
+                                            <button
+                                                onClick={handleJoinBtnClick}
+                                                className="btn btn-danger btn-md"
+                                            >
+                                                Add
+                                            </button>
                                         </div>
                                     ))}
 
                                 </Tab.Pane>
                                 {meetings.map(item => (
+                                    //TODO: need to have code to check database to see if user is already linked to the meeting and if so ---return
                                     <Tab.Pane key={item.id} eventKey={item.CategoryId}>
-                                        <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                                        <div data-id={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
                                             <h3>Event Name</h3>
-                                            <p>{item.CategoryId}</p>
-                                            <p>Host Name</p>
-                                            <p>Time/Date</p>
-                                            <button className="btn btn-danger btn-md"
-                                            >Add</button>
+                                            <p>{item.Category.category_name}</p>
+                                            <p>{item.Users[0].first_name}</p>
+                                            <p>{item.timeDate}</p>
+                                            <button className="btn btn-danger btn-md" onClick={handleJoinBtnClick}>Add</button>
                                         </div>
                                     </Tab.Pane>
                                 ))}
@@ -83,9 +94,7 @@ function TabExampleVerticalTab() {
             </ul>
         </div >
     );
+
 }
 
 export default TabExampleVerticalTab;
-
-
-

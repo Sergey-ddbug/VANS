@@ -1,5 +1,5 @@
 'use strict';
-const { Model } = require('sequelize');
+const { Model, DatabaseError } = require('sequelize');
 const bcrypt = require('bcryptjs')
 
 module.exports = (sequelize, DataTypes) => {
@@ -23,11 +23,23 @@ module.exports = (sequelize, DataTypes) => {
 
   User.init(
     {
-      first_name: DataTypes.STRING,
+      first_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       last_name: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       last_login: DataTypes.DATE,
+      profileImgPublicId: {
+        type: DataTypes.STRING
+      }
     },
     {
       hooks: {

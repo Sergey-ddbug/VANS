@@ -38,9 +38,9 @@ const Login = () => {
         setErrorMsg(response.data.message);
         return;
       }
-
+      console.log(response.data)
       if (response.status === 200) {
-        dispatch({ type: SET_USER, user: response.data });
+        dispatch({ type: SET_USER, user: response.data.dataValues });
         setErrorMsg(null);
         history.replace("/");
       }

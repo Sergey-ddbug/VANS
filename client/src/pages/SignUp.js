@@ -8,7 +8,7 @@ const SignUp = () => {
   const history = useHistory();
 
   const [signUpCreds, setSignUpCreds] = useState({
-    firstName: "",
+    first_name: "",
     email: "",
     password: "",
   });
@@ -24,7 +24,7 @@ const SignUp = () => {
     console.log(signUpCreds);
     axios
       .post("/api/users/signup", {
-        firstName: signUpCreds.firstName,
+        first_name: signUpCreds.first_name,
 
         email: signUpCreds.email,
         password: signUpCreds.password,
@@ -44,23 +44,22 @@ const SignUp = () => {
         <Col>
           <form className="form-signin box">
             <h4>Hi, There</h4>
-
-            <label htmlFor="inputfirstName" className="sr-only">
+            <label htmlFor="inputfirst_name" className="sr-only">
               First Name
-         </label>
+              </label>
             <input
-              type="firstName"
+              type="first_name"
               id="inputName"
               className="form-control"
-              name="firstName"
+              name="first_name"
               placeholder="First Name"
-              value={signUpCreds.firstName}
+              value={signUpCreds.first_name}
               onChange={handleChange}
             />
 
             <label htmlFor="inputEmail" className="sr-only">
               Email address
-        </label>
+              </label>
             <input
               type="email"
               id="inputEmail"
@@ -72,7 +71,7 @@ const SignUp = () => {
             />
             <label htmlFor="inputPassword" className="sr-only">
               Password
-        </label>
+              </label>
             <input
               type="password"
               id="inputPassword"
@@ -88,8 +87,9 @@ const SignUp = () => {
               onClick={handleSubmit}
             >
               Sign Up
-        </button>
+              </button>
           </form>
+
         </Col>
         <Col>
           <Image

@@ -1,12 +1,10 @@
 import React from "react";
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Carousel from '../components/Carousel';
-// import '../pages/assets/Login.css';
-
+// import Jumbotron from "react-bootstrap/Jumbotron";
+import Carousel from "../components/Carousel";
 export default function JumbotronCarousel() {
   return (
-    <Jumbotron className="jumb">
-      <Carousel />
-    </Jumbotron>
-  )
+    // <Jumbotron className="container-bg">
+    <Carousel />
+    // </Jumbotron>
+  );
 }
