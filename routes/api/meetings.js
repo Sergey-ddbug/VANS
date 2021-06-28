@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Meeting, User, UserMeeting } = require('../../models');
+const { Meeting, User, UserMeeting, Category } = require('../../models');
 const { Op } = require('sequelize');
 
 router.post('/', async (req, res) => {
@@ -19,24 +19,46 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.post('/addAJoin', async (req, res) => {
+    try {
+        console.log(req.body)
+        const userMeetingData = await UserMeeting.create({
+            MeetingId: req.body.MeetingId,
+            UserId: req.user.id
+        })
+
+        res.json(userMeetingData)
+    } catch (err) {
+        console.log(err)
+        res.status(422).json(err)
+    }
+});
+
 router.get('/host', async (req, res) => {
     try {
         const userMeetingData = await User.findOne({
             where: {
                 id: req.user.id
             },
-            include: [{
-                model: Meeting,
-                through: {
-                    where: {
-                        host: true
+            include: [
+                {
+                    model: Meeting,
+                    through: {
+                        where: {
+                            host: true
+                        }
+                    },
+                    include: [{
+                        model: Category
+
+                    }, {
+                        model: User
                     }
-                }
-            }]
+
+                    ]
+                }]
         })
-
         res.json(userMeetingData)
-
     } catch (err) {
         console.log(err)
         res.status(422).json(err)
@@ -49,19 +71,28 @@ router.get('/future/nonhost', async (req, res) => {
             where: {
                 id: req.user.id
             },
-            include: [{
-                model: Meeting,
-                where: {
-                    timeDate: {
-                        [Op.gte]: new Date()
-                    }
-                },
-                through: {
+            include: [
+                {
+                    model: Meeting,
                     where: {
-                        host: false
+                        timeDate: {
+                            [Op.gte]: new Date()
+                        }
+                    },
+                    through: {
+                        where: {
+                            host: false
+                        }
+                    },
+                    include: [{
+                        model: Category
+
+                    }, {
+                        model: User
                     }
+                    ]
                 }
-            }]
+            ]
         })
 
         res.json(userMeetingData)
@@ -76,7 +107,13 @@ router.get('/future/nonhost', async (req, res) => {
 router.get('/all', async (req, res) => {
     try {
         const meetingData = await Meeting.findAll({
-            limit: 10
+            limit: 10,
+            include: [{
+                model: Category
+            },
+            {
+                model: User
+            }]
         });
 
         res.json(meetingData)
@@ -85,7 +122,6 @@ router.get('/all', async (req, res) => {
         console.log(err);
         res.status(422).json(err)
     }
-    // res.json(meetingData)
 });
 
 module.exports = router;

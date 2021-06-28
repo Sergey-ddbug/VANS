@@ -1,7 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import API from "../lib/API";
+import { useStoreContext } from '../store/store';
+import { SET_IMG_ID } from '../store/actions';
+
+
 import '../pages/style.css';
-function ProfPic() {
+function ProfPic({ state, dispatch }) {
   const uploadedImage = React.useRef(null);
   const imageUploader = React.useRef(null);
 
@@ -15,8 +20,22 @@ function ProfPic() {
         current.src = e.target.result;
       };
       reader.readAsDataURL(file);
+      console.log("file here")
+      sendImg(file);
     }
   };
+
+  const sendImg = async (file) => {
+
+    const imgData = await API.Images.sendProfilePic(file);
+
+
+
+    console.log(imgData.data.profileImgPublicId);
+
+    dispatch({ type: SET_IMG_ID, profileImgPublicId: imgData.data.profileImgPublicId })
+
+  }
 
   return (
     <div

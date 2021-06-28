@@ -11,13 +11,34 @@ export default {
         // creat a user
     },
 
+    Images: {
+        sendProfilePic: function (file) {
+            const formData = new FormData();
+            formData.append("file", file);
+            return axios.post('/api/images/', formData, {
+                headers: {
+                    "Content-Type": 'multipart/form-data'
+                }
+            })
+        }
+    },
+
     Meetings: {
         createMeeting: function (meetingData) {
             return axios.post("/api/meetings", meetingData)
         },
         getMeeting: function () {
             return axios.get("/api/meetings/all")
-        }
+        },
+        addMeetingsJoin: function (meetingData) {
+            return axios.post("/api/meetings/addAJoin", meetingData)
+        },
+        getFutureNonHost: function () {
+            return axios.get("/api/meetings/future/nonhost")
+        },
+        getHostMeetings: function () {
+            return axios.get("/api/meetings/host")
+        },
     },
 
     Categories: {

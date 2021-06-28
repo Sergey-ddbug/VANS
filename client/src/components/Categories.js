@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import API from '../lib/API';
-import { Tab, Nav, Row, Col } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import API from "../lib/API";
+import { Tab, Nav, Row, Col } from "react-bootstrap";
 
 function TabExampleVerticalTab() {
-    const [categories, setCategories] = useState([])
-    const [meetings, setMeetings] = useState([])
+    const [categories, setCategories] = useState([]);
+    const [meetings, setMeetings] = useState([]);
 
     useEffect(() => {
         loadCategories();
         loadMeetings();
-    }, [])
+    }, []);
+
 
     function loadCategories() {
         API.Categories.getCategories()
             .then(res => {
-                console.log("hi", res);
                 setCategories(res.data)
             }
             )
@@ -23,16 +23,26 @@ function TabExampleVerticalTab() {
 
     function loadMeetings() {
         API.Meetings.getMeeting()
-            .then(res =>
-                setMeetings(res.data)
-            )
+            .then((res) => {
+                console.log(res.data);
+                setMeetings(res.data);
+            })
+            .catch((err) => console.log("ERROR", err));
+    }
+
+
+    function handleJoinBtnClick(event) {
+        const meetingId = event.target.parentNode.dataset.id;
+        API.Meetings.addMeetingsJoin({
+            MeetingId: meetingId,
+        })
             .catch(err => console.log("ERROR", err));
-    };
+    }
 
     return (
-        <div>
+        <div className="test3">
             <ul>
-                <Tab.Container id="left-tabs-example" defaultActiveKey="all">
+                <Tab.Container id="left-tabs-example" defaultActiveKey="all" >
                     <Row>
                         <Col sm={3}>
                             <Nav variant="pills" className="flex-column">
@@ -41,7 +51,7 @@ function TabExampleVerticalTab() {
                                 </Nav.Item>
                                 {categories.map(item => (
                                     <Nav.Item >
-                                        <Nav.Link key={item.id} eventKey={item.category_name}>{item.category_name}</Nav.Link>
+                                        <Nav.Link key={item.id} eventKey={item.id}>{item.category_name}</Nav.Link>
                                     </Nav.Item>
                                 ))}
                             </Nav>
@@ -49,50 +59,31 @@ function TabExampleVerticalTab() {
                         <Col sm={9}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="all">
-                                    <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3 ">
-                                        <h3>Event Name</h3>
-                                        <p>Yoga</p>
-                                        <p>Host Name</p>
-                                        <p>Time/Date</p>
-                                        <button>Add</button>
-                                    </div>
-                                    <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                        <h3>Event Name</h3>
-                                        <p>Meditation</p>
-                                        <p>Host Name</p>
-                                        <p>Time/Date</p>
-                                        <button>Add</button>
-                                    </div>
-                                    <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                        <h3>Event Name</h3>
-                                        <p>Web Development</p>
-                                        <p>Host Name</p>
-                                        <p>Time/Date</p>
-                                        <button>Add</button>
-                                    </div>
+                                    {meetings.map(item => (
+                                        <div data-id={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                                            <h3>Event Name</h3>
+                                            <p>{item.Category.category_name}</p>
+                                            <p>{item.Users[0].first_name}</p>
+                                            <p>{item.timeDate}</p>
+                                            <button
+                                                onClick={handleJoinBtnClick}
+                                                className="btn btn-danger btn-md"
+                                            >
+                                                Add
+                                            </button>
+                                        </div>
+                                    ))}
+
                                 </Tab.Pane>
-                                {categories.map(item => (
-                                    <Tab.Pane key={item.id} eventKey={item.category_name}>
-                                        <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                                {meetings.map(item => (
+                                    //TODO: need to have code to check database to see if user is already linked to the meeting and if so ---return
+                                    <Tab.Pane key={item.id} eventKey={item.CategoryId}>
+                                        <div data-id={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
                                             <h3>Event Name</h3>
-                                            <p>{item.category_name}</p>
-                                            <p>Host Name</p>
-                                            <p>Time/Date</p>
-                                            <button>Add</button>
-                                        </div>
-                                        <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                            <h3>Event Name</h3>
-                                            <p>{item.category_name}</p>
-                                            <p>Host Name</p>
-                                            <p>Time/Date</p>
-                                            <button>Add</button>
-                                        </div>
-                                        <div className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                            <h3>Event Name</h3>
-                                            <p>{item.category_name}</p>
-                                            <p>Host Name</p>
-                                            <p>Time/Date</p>
-                                            <button>Add</button>
+                                            <p>{item.Category.category_name}</p>
+                                            <p>{item.Users[0].first_name}</p>
+                                            <p>{item.timeDate}</p>
+                                            <button className="btn btn-danger btn-md" onClick={handleJoinBtnClick}>Add</button>
                                         </div>
                                     </Tab.Pane>
                                 ))}
@@ -103,9 +94,7 @@ function TabExampleVerticalTab() {
             </ul>
         </div >
     );
+
 }
 
 export default TabExampleVerticalTab;
-
-
-

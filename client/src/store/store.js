@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { LOGIN, LOGOUT, SET_USER, UNSET_USER } from './actions';
+import { LOGIN, LOGOUT, SET_USER, UNSET_USER, SET_IMG_ID } from './actions';
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -26,6 +26,15 @@ const reducer = (state, action) => {
         user: null,
         loading: false,
       };
+
+    case SET_IMG_ID:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          profileImgPublicId: action.profileImgPublicId
+        }
+      }
 
     default:
       return state;

@@ -1,12 +1,10 @@
 import React from "react";
-import Jumbotron from "react-bootstrap/Jumbotron";
+// import Jumbotron from "react-bootstrap/Jumbotron";
 import Carousel from "../components/Carousel";
 export default function JumbotronCarousel() {
   return (
-    <div>
-      <Jumbotron>
-        <Carousel />
-      </Jumbotron>
-    </div>
+    // <Jumbotron className="container-bg">
+    <Carousel />
+    // </Jumbotron>
   );
 }

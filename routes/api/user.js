@@ -55,6 +55,7 @@ router.post('/signup', async function (req, res, next) {
   }
 
   try {
+    console.log(req.body)
     user = await User.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
