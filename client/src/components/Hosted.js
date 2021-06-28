@@ -3,7 +3,7 @@ import API from '../lib/API';
 import { Tab, Row, Col } from 'react-bootstrap'
 
 
-function TabExampleVerticalTab() {
+function TabExampleVerticalTab({ handleSubmit }) {
   const [hostMeetings, setHostMeetings] = useState([])
 
 
@@ -33,7 +33,7 @@ function TabExampleVerticalTab() {
                       <p>{item.Category.category_name}</p>
                       <p>{item.Users[0].first_name}</p>
                       <p>{item.timeDate}</p>
-                      <button>Join</button>
+                      <button onClick={(e) => handleSubmit(e, item.meetingName)}>Join</button>
                       <button>Delete</button>
                     </div>
                   ))}
