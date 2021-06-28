@@ -16,17 +16,21 @@ const sendTokenResponse = (token, res) => {
 };
 
 router.get('/token/:room', (req, res) => {
-    console.log("REQ", req)
-    const identity = req.user.username;
+    console.log("REQqqqqq", req)
+    const identity = req.user.first_name;
     const room = req.params.room;
     const token = videoToken(identity, room, config);
     sendTokenResponse(token, res);
 });
 
 router.post('/token', (req, res) => {
-    const identity = req.body.identity;
+    console.log(res)
+    console.log(req.user.first_name)
+    const identity = req.user.first_name;
     const room = req.body.room;
+    console.log("identity", identity, "room", room)
     const token = videoToken(identity, room, config);
+    console.log(token)
     sendTokenResponse(token, res);
 });
 
