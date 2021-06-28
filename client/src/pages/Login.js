@@ -63,9 +63,9 @@ const Login = () => {
           </Image>
         </Col>
         <Col>
-          <form className="form-signin loginbox">
+          <form className="form-signin box">
             <h4>Login</h4>
-            {errorMsg ? <p>{errorMsg}</p> : null}
+            {errorMsg ? <p style={{ color: 'red' }}>{errorMsg}</p> : null}
             <p></p>
             <label htmlFor="inputEmail" className="sr-only">
               Email address

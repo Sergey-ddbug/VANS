@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import API from '../lib/API';
-import { Tab, Nav, Row, Col } from 'react-bootstrap'
+import { Tab, Nav, Row, Col } from 'react-bootstrap';
+// import '../pages/assets/Login.css';
 
 function TabExampleVerticalTab() {
     const [categories, setCategories] = useState([])
@@ -32,9 +33,9 @@ function TabExampleVerticalTab() {
     console.log(meetings)
 
     return (
-        <div>
+        <div className="test3">
             <ul>
-                <Tab.Container id="left-tabs-example" defaultActiveKey="all">
+                <Tab.Container id="left-tabs-example" defaultActiveKey="all" >
                     <Row>
                         <Col sm={3}>
                             <Nav variant="pills" className="flex-column">
@@ -57,7 +58,8 @@ function TabExampleVerticalTab() {
                                             <p>{item.CategoryId}</p>
                                             <p>Host Name</p>
                                             <p>{item.timeDate}</p>
-                                            <button>Add</button>
+                                            <button className="btn btn-danger btn-md"
+                                            >Add</button>
                                         </div>
                                     ))}
 
@@ -69,7 +71,8 @@ function TabExampleVerticalTab() {
                                             <p>{item.CategoryId}</p>
                                             <p>Host Name</p>
                                             <p>Time/Date</p>
-                                            <button>Add</button>
+                                            <button className="btn btn-danger btn-md"
+                                            >Add</button>
                                         </div>
                                     </Tab.Pane>
                                 ))}
