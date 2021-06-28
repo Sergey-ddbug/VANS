@@ -1,3 +1,27 @@
-.loginbox {
+.box {
   padding-top: 230px;
 }
+.postbox {
+  padding: 150px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: Black;
+  background-image: url("https://images.pexels.com/photos/1166643/pexels-photo-1166643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.postbox2 {
+  background-color: rgba(0, 0, 0, 0.205) !important;
+  padding: 10px;
+  margin-left: 1%;
+}
+/* .jumb {
+  background-color: rgba(0, 0, 0, 0.205) !important;
+  width: 100%;
+} */
+/* .test3 {
+  background-color: rgba(0, 0, 0, 0.205) !important;
+  padding: 10px;
+  margin-left: 1%;
+} */
