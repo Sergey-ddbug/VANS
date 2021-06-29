@@ -29,4 +29,27 @@ router.post('/', upload.single('file'), async (req, res) => {
   }
 });
 
+router.post('/destroy', async (req, res) => {
+  try {
+    const publicId = req.body.publicId;
+
+    const killPic = await cloudinary.uploader.destroy(publicId, function (error, result) {
+      console.log(result, error)
+    });
+
+    const userData = await User.update({
+      profileImgPublicId: null
+    }, {
+      where: {
+        id: req.user.id
+      }
+    })
+
+    res.status(200).json({ status: 'ok', profileImgPublicId: null })
+
+  } catch (err) {
+    res.json(err);
+  }
+})
+
 module.exports = router;

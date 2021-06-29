@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 import API from "../lib/API";
 import { useStoreContext } from '../store/store';
 import { SET_IMG_ID } from '../store/actions';
-
-
 import '../pages/style.css';
+
 function ProfPic({ state, dispatch }) {
   const uploadedImage = React.useRef(null);
   const imageUploader = React.useRef(null);
@@ -28,8 +27,6 @@ function ProfPic({ state, dispatch }) {
   const sendImg = async (file) => {
 
     const imgData = await API.Images.sendProfilePic(file);
-
-
 
     console.log(imgData.data.profileImgPublicId);
 
@@ -61,7 +58,7 @@ function ProfPic({ state, dispatch }) {
           width: "200px",
           border: "1px dashed black"
         }}
-        onClick={() => imageUploader.current.click()}
+        // onClick={() => imageUploader.current.click()}
       >
         <img
           ref={uploadedImage}
@@ -72,7 +69,7 @@ function ProfPic({ state, dispatch }) {
           }}
         />
       </div>
-      Upload Profile Picture
+      <button onClick={() => imageUploader.current.click()}>Upload Profile Picture</button>
     </div>
   );
 }

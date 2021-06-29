@@ -91,7 +91,8 @@ const Profile = () => {
                             publicId={state.user.profileImgPublicId}
                             width="300"
                             crop="scale"
-
+                            state={state}
+                            dispatch={dispatch}
                         />
                         :
                         <ProfPic state={state} dispatch={dispatch} />
