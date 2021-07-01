@@ -33,7 +33,7 @@ function TabExampleVerticalTab({ handleSubmit }) {
                       <p>{item.Category.category_name}</p>
                       <p>{item.Users[0].first_name}</p>
                       <p>{item.timeDate}</p>
-                      <button onClick={(e) => handleSubmit(e, item.meetingName)}>Join</button>
+                      <button onClick={(e) => handleSubmit(e, item)}>Join</button>
                       <button>Delete</button>
                     </div>
                   ))}

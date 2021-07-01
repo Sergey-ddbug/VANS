@@ -12,12 +12,14 @@ function TabExampleVerticalTab({ handleSubmit }) {
 
   function loadFuture() {
     API.Meetings.getFutureNonHost()
-      .then(res =>
+      .then(res => {
+        console.log("SUCCESS", res)
         setfutureNonHost(res.data.Meetings)
-      )
+      })
       .catch(err => console.log("ERROR", err));
   };
 
+  console.log(futureNonHost)
 
   return (
     <div>
@@ -34,7 +36,7 @@ function TabExampleVerticalTab({ handleSubmit }) {
                       <p>{item.Category.category_name}</p>
                       <p>{item.Users[0].first_name}</p>
                       <p>{item.timeDate}</p>
-                      <button onClick={(e) => handleSubmit(e, item.meetingName)}>Join</button>
+                      <button onClick={(e) => handleSubmit(e, item)}>Join</button>
                       <button>Delete</button>
                     </div>
                   ))}
