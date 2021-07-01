@@ -18,23 +18,55 @@ const Profile = () => {
     const [room, setRoom] = useState(null);
     const [connecting, setConnecting] = useState(false);
 
-    const handleSubmit = useCallback(
-        async (event, name) => {
+    const handleUserSubmit = useCallback(
+        async (event, item) => {
             event.preventDefault();
             setConnecting(true);
-            const data = await fetch("/api/video/token", {
+            const data = await fetch("/api/video/participant", {
                 method: "POST",
                 body: JSON.stringify({
-                    room: name,
+                    room: item.meetingName,
+                    roomId: item.id
                 }),
                 headers: {
                     "Content-Type": "application/json",
                 },
             }).then((res) => res.json());
-            setRoomName(name)
+            setRoomName(item.meetingName)
 
             Video.connect(data.token, {
-                name: name,
+                name: item.meetingName,
+            })
+                .then((room) => {
+                    setConnecting(false);
+                    setRoom(room);
+                })
+                .catch((err) => {
+                    console.error(err);
+                    setConnecting(false);
+                });
+        },
+        [roomName]
+    );
+
+    const handleHostSubmit = useCallback(
+        async (event, item) => {
+            event.preventDefault();
+            setConnecting(true);
+            const data = await fetch("/api/video/begin", {
+                method: "POST",
+                body: JSON.stringify({
+                    room: item.meetingName,
+                    roomId: item.id
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }).then((res) => res.json());
+            setRoomName(item.meetingName)
+
+            Video.connect(data.token, {
+                name: item.meetingName,
             })
                 .then((room) => {
                     setConnecting(false);
@@ -103,7 +135,7 @@ const Profile = () => {
                 <Col>
                     <div as='h3'>Hosted</div>
                     <Hosted
-                        handleSubmit={handleSubmit}
+                        handleSubmit={handleHostSubmit}
                     />
                 </Col>
             </Row>
@@ -111,7 +143,7 @@ const Profile = () => {
                 <Col>
                     <div as='h3'>Added</div>
                     <Added
-                        handleSubmit={handleSubmit}
+                        handleSubmit={handleUserSubmit}
                     />
                 </Col>
             </Row>

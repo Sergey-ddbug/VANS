@@ -26,13 +26,9 @@ import React from "react";
 //   width: "0%",
 // };
 
-const height = {
-  height: "30px"
-}
-
 function Footer({ children }) {
   return (
-    <div styl={height}>
+    <div>
       <div>© 2021 Copyright Text </div>
     </div>
     // <div style={mainDiv}>

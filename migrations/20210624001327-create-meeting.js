@@ -25,6 +25,10 @@ module.exports = {
       CategoryId: {
         type: Sequelize.INTEGER
       },
+      meetingStatus: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

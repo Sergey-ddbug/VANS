@@ -49,7 +49,7 @@ const Header = () => {
             </Link>
           </li>
           <li className="option" onClick={closeMobileMenu}>
-            <Link to="#" className="btn btn-link text-secondary">
+            <Link href="#tablist" className="btn btn-link text-secondary">
               <span className="text-secondary">UPCOMING</span>
             </Link>
           </li>

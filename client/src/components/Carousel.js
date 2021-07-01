@@ -12,7 +12,7 @@ export default function ControlledCarousel() {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block mw-100"
           src="https://greaterriversidehispanicchamberofcommerce.org/wp-content/uploads/ZoomFatigue-scaled-e1614972364871-1980x990.jpg"
           alt="First slide"
         />
