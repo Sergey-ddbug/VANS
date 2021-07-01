@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
   Meeting.init({
     meetingName: DataTypes.STRING,
     timeDate: DataTypes.DATE,
+    meetingStatus: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {
     sequelize,
     modelName: 'Meeting',

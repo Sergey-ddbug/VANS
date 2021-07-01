@@ -36,8 +36,10 @@ function TabExampleVerticalTab() {
         API.Meetings.addMeetingsJoin({
             MeetingId: meetingId,
         })
+            .then(() => loadMeetings())
             .catch(err => console.log("ERROR", err));
     }
+
 
     return (
         <div className="test3">
@@ -65,12 +67,22 @@ function TabExampleVerticalTab() {
                                             <p>{item.Category.category_name}</p>
                                             <p>{item.Users[0].first_name}</p>
                                             <p>{item.timeDate}</p>
-                                            <button
-                                                onClick={handleJoinBtnClick}
-                                                className="btn btn-danger btn-md"
-                                            >
-                                                Add
-                                            </button>
+
+
+                                            {item.isUserMeeting ? (
+                                                <button
+                                                    onClick={() => console.log('DO REMOVE')}
+                                                    className="btn btn-danger btn-md"
+                                                >
+                                                    Remove
+                                                </button>) : (
+                                                <button
+                                                    onClick={handleJoinBtnClick}
+                                                    className="btn btn-danger btn-md"
+                                                >
+                                                    Add
+                                                </button>
+                                            )}
                                         </div>
                                     ))}
 
