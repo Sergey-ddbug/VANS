@@ -5,6 +5,7 @@ const { Op } = require('sequelize');
 
 router.post('/', async (req, res) => {
     try {
+        console.log(req.body)
         const meetingData = await Meeting.create(req.body);
         const userMeetingData = await UserMeeting.create({
             host: true,
@@ -21,6 +22,14 @@ router.post('/', async (req, res) => {
 
 router.post('/addAJoin', async (req, res) => {
     try {
+        // if (await UserMeeting.findAll({ where: { UserId: req.user.id, MeetingId: req.body.id } }) === undefined) {
+        //     console.log("hello")
+        // } else {
+        //     console.log("goodbye")
+        // }
+
+        // console.log(alreadyJoined)
+
         console.log(req.body)
         const userMeetingData = await UserMeeting.create({
             MeetingId: req.body.MeetingId,
@@ -87,8 +96,14 @@ router.get('/future/nonhost', async (req, res) => {
                     include: [{
                         model: Category
 
-                    }, {
-                        model: User
+                    },
+                    {
+                        model: User,
+                        where: {
+                            id: {
+                                [Op.not]: req.user.id
+                            }
+                        },
                     }
                     ]
                 }
@@ -106,17 +121,52 @@ router.get('/future/nonhost', async (req, res) => {
 
 router.get('/all', async (req, res) => {
     try {
+        const myDate = new Date();
+        const newDate = new Date(myDate);
+        newDate.setHours(newDate.getHours() - 1);
+        console.log(myDate, newDate);
+        console.log()
+
         const meetingData = await Meeting.findAll({
             limit: 10,
+            where: {
+                timeDate: {
+                    [Op.gte]: new Date(newDate)
+                }
+            },
             include: [{
                 model: Category
             },
             {
                 model: User
-            }]
+            }
+            ]
         });
 
-        res.json(meetingData)
+        // const products = productData.map((data) => data.get({ plain: true }));
+
+
+        if (req.session.user) {
+            const userMeetings =
+                meetingData
+                    .map(data => data.get({ plain: true }))
+                    .map(meeting => {
+                        const userIndex = meeting.Users.findIndex(user => user.id === req.session.user.id);
+
+                        if (userIndex !== -1) {
+                            return {
+                                ...meeting,
+                                isUserMeeting: true,
+                            }
+                        }
+
+                        return meeting;
+                    });
+
+            res.json(userMeetings);
+        } else {
+            res.json(meetingData);
+        }
 
     } catch (err) {
         console.log(err);

@@ -15,8 +15,10 @@ export default function ControlledCarousel() {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
+
           className="d-block w-100"
           src="https://images.pexels.com/photos/6953985/pexels-photo-6953985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+
           alt="First slide"
         />
         <Carousel.Caption>

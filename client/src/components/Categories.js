@@ -37,8 +37,10 @@ function TabExampleVerticalTab() {
         API.Meetings.addMeetingsJoin({
             MeetingId: meetingId,
         })
+            .then(() => loadMeetings())
             .catch(err => console.log("ERROR", err));
     }
+
 
     return (
         <div className="test3">
@@ -53,10 +55,36 @@ function TabExampleVerticalTab() {
                                     <Nav.Item>
                                         <Nav.Link eventKey="all">All</Nav.Link>
                                     </Nav.Item>
-                                    {categories.map(item => (
-                                        <Nav.Item >
-                                            <Nav.Link key={item.id} eventKey={item.id}>{item.category_name}</Nav.Link>
-                                        </Nav.Item>
+
+                            </Nav>
+                        </Col>
+                        <Col sm={9}>
+                            <Tab.Content>
+                                <Tab.Pane eventKey="all">
+                                    {meetings.map(item => (
+                                        <div data-id={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                                            <h3>Event Name</h3>
+                                            <p>{item.Category.category_name}</p>
+                                            <p>{item.Users[0].first_name}</p>
+                                            <p>{item.timeDate}</p>
+
+
+                                            {item.isUserMeeting ? (
+                                                <button
+                                                    onClick={() => console.log('DO REMOVE')}
+                                                    className="btn btn-danger btn-md"
+                                                >
+                                                    Remove
+                                                </button>) : (
+                                                <button
+                                                    onClick={handleJoinBtnClick}
+                                                    className="btn btn-danger btn-md"
+                                                >
+                                                    Add
+                                                </button>
+                                            )}
+                                        </div>
+
                                     ))}
                                 </Nav>
                             </Col>
