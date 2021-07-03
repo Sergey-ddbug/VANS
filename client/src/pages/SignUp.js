@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import '../pages/style.css';
 import { Container, Row, Col, Image } from 'react-bootstrap';
+import '../pages/assets/Login.css';
 
 const SignUp = () => {
   const history = useHistory();
@@ -91,7 +92,7 @@ const SignUp = () => {
           </form>
 
         </Col>
-        <Col>
+        <Col className="signuppic">
           <Image
             width={450}
             height={650}

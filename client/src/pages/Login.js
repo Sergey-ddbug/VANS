@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../store/actions";
 import { useStoreContext } from "../store/store";
-import '../pages/assets/Login.css';
 import { Container, Row, Col, Image } from 'react-bootstrap';
+import '../pages/assets/Login.css';
 
 const Login = () => {
   const [, /* state */ dispatch] = useStoreContext();
@@ -55,7 +55,7 @@ const Login = () => {
 
     <Container className="flex-grow-1" >
       <Row>
-        <Col>
+        <Col className="loginpic">
           <Image
             width={450}
             height={650}
