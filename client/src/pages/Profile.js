@@ -7,6 +7,7 @@ import { useStoreContext } from '../store/store';
 import CloudinaryImage from '../components/CloudinaryImage';
 import Video from "twilio-video";
 import Room from "../components/Twilio/Room";
+import '../pages/assets/Login.css';
 // import TwilioTest from "../components/Twilio/TwilioTest";
 
 
@@ -115,9 +116,9 @@ const Profile = () => {
     //TODO: handle case for if no hosted meetings or added meetings--- terinary oporator!!!
 
     return (
-        <Container>
+        <Container className="profContainer">
             <Row>
-                <Col>
+                <Col className="box1 img-rounded">
                     {state.user.profileImgPublicId ?
                         <CloudinaryImage
                             publicId={state.user.profileImgPublicId}
@@ -125,31 +126,44 @@ const Profile = () => {
                             crop="scale"
                             state={state}
                             dispatch={dispatch}
+                            border="rounded"
+
+
+
                         />
                         :
                         <ProfPic state={state} dispatch={dispatch} />
                     }
                 </Col>
+
             </Row>
+            {/* <Row>
+                <Col
+                    className="userinfo">VIKA
+                </Col>
+            </Row> */}
+
             <Row>
-                <Col>
-                    <div as='h3'>Hosted</div>
+                <Col className="box2">
+                    <div className="text-lg">Hosted</div>
                     <Hosted
                         handleSubmit={handleHostSubmit}
                     />
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <div as='h3'>Added</div>
-                    <Added
-                        handleSubmit={handleUserSubmit}
-                    />
+
+                <Col className="box2">
+                    <div className="text-lg">Added</div>
+                    <Added className="testbox"
+                        handleSubmit={handleSubmit}
+
+                   
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <div as='h3'>Video Chat</div>
+                <Col className="box2">
+                    {/* <div as='h2'>Video Chat</div> */}
                     {room && <Room roomName={roomName} room={room} handleLogout={handleLogout} />}
                     {/* {room && <TwilioTest roomName={roomName} room={room} />} */}
 
