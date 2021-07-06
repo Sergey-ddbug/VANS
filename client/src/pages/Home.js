@@ -4,7 +4,7 @@ import Categories from "../components/Categories";
 // import Footer from "../components/Footer";
 import Jumbotron from "../components/Jumbotron";
 import "../pages/style.css";
-import Background from "../img/Background_08.mp4";
+import Background from "../img/te.mp4";
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -15,7 +15,7 @@ document.head.appendChild(styleLink);
 const Home = () => (
   <>
     <div className="container-bg">
-      {/* <video
+      <video
         autoPlay
         loop
         muted
@@ -29,7 +29,7 @@ const Home = () => (
         }}
       >
         <source src={Background} type="video/mp4" />
-      </video> */}
+      </video>
       <Jumbotron />
       <d className="flex-grow-1 "
         style={{ margin: 20 }}
