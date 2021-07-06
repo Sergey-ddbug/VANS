@@ -31,11 +31,11 @@ const Home = () => (
         <source src={Background} type="video/mp4" />
       </video> */}
       <Jumbotron />
-      <d className="flex-grow-1 "
+      <div className="flex-grow-1 "
         style={{ margin: 20 }}
       >
         <Categories />
-      </d>
+      </div>
 
       {/* <Footer /> */}
     </div>
