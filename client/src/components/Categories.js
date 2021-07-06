@@ -56,8 +56,9 @@ function TabExampleVerticalTab() {
                                         <Nav.Link eventKey="all">All</Nav.Link>
                                     </Nav.Item>
 
-                            </Nav>
-                        </Col>
+                                </Nav>
+                            </Col>
+                        </Row>
                         <Col sm={9}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="all">
@@ -86,8 +87,8 @@ function TabExampleVerticalTab() {
                                         </div>
 
                                     ))}
-                                </Nav>
-                            </Col>
+                                </Tab.Pane>
+                            </Tab.Content>
                             <Col sm={9}>
                                 <Tab.Content>
                                     <Tab.Pane eventKey="all">
@@ -105,8 +106,8 @@ function TabExampleVerticalTab() {
                                             </button>
                                             </div>
                                         ))}
-
                                     </Tab.Pane>
+                                    
                                     {meetings.map(item => (
                                         //TODO: need to have code to check database to see if user is already linked to the meeting and if so ---return
                                         <Tab.Pane key={item.id} eventKey={item.CategoryId}>
@@ -121,7 +122,7 @@ function TabExampleVerticalTab() {
                                     ))}
                                 </Tab.Content>
                             </Col>
-                        </Row>
+                        </Col>
                     </Tab.Container>
                 </Container>
             </ul>
