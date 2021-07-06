@@ -19,23 +19,55 @@ const Profile = () => {
     const [room, setRoom] = useState(null);
     const [connecting, setConnecting] = useState(false);
 
-    const handleSubmit = useCallback(
-        async (event, name) => {
+    const handleUserSubmit = useCallback(
+        async (event, item) => {
             event.preventDefault();
             setConnecting(true);
-            const data = await fetch("/api/video/token", {
+            const data = await fetch("/api/video/participant", {
                 method: "POST",
                 body: JSON.stringify({
-                    room: name,
+                    room: item.meetingName,
+                    roomId: item.id
                 }),
                 headers: {
                     "Content-Type": "application/json",
                 },
             }).then((res) => res.json());
-            setRoomName(name)
+            setRoomName(item.meetingName)
 
             Video.connect(data.token, {
-                name: name,
+                name: item.meetingName,
+            })
+                .then((room) => {
+                    setConnecting(false);
+                    setRoom(room);
+                })
+                .catch((err) => {
+                    console.error(err);
+                    setConnecting(false);
+                });
+        },
+        [roomName]
+    );
+
+    const handleHostSubmit = useCallback(
+        async (event, item) => {
+            event.preventDefault();
+            setConnecting(true);
+            const data = await fetch("/api/video/begin", {
+                method: "POST",
+                body: JSON.stringify({
+                    room: item.meetingName,
+                    roomId: item.id
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }).then((res) => res.json());
+            setRoomName(item.meetingName)
+
+            Video.connect(data.token, {
+                name: item.meetingName,
             })
                 .then((room) => {
                     setConnecting(false);
@@ -92,6 +124,8 @@ const Profile = () => {
                             publicId={state.user.profileImgPublicId}
                             width="300"
                             crop="scale"
+                            state={state}
+                            dispatch={dispatch}
                             border="rounded"
 
 
@@ -113,17 +147,16 @@ const Profile = () => {
                 <Col className="box2">
                     <div className="text-lg">Hosted</div>
                     <Hosted
-                        handleSubmit={handleSubmit}
+                        handleSubmit={handleHostSubmit}
                     />
                 </Col>
             </Row>
             <Row>
+
                 <Col className="box2">
                     <div className="text-lg">Added</div>
-                    <Added className="testbox"
-                        handleSubmit={handleSubmit}
-
-                    />
+                    {/* <Added className="testbox"
+                        handleSubmit={handleSubmit} /> */}
                 </Col>
             </Row>
             <Row>

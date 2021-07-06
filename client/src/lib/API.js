@@ -20,6 +20,9 @@ export default {
                     "Content-Type": 'multipart/form-data'
                 }
             })
+        },
+        deleteProfilePic: function (file) {
+            return axios.post('/api/images/destroy', file);
         }
     },
 

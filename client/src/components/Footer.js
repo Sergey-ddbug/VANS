@@ -13,6 +13,7 @@ const Footer = () => <footer className="page-footer font-small blue pt-4">
         </p>
       </div>
 
+
       <hr className="clearfix w-100 d-md-none pb-0" />
 
       <div className="col-md-3 mb-md-0 mb-3">
@@ -36,10 +37,9 @@ const Footer = () => <footer className="page-footer font-small blue pt-4">
       </div>
     </div>
   </div>
-  <div className="footer-copyright text-center py-3">© VANS 2021
-        
-    </div>
+  <div className="footer-copyright text-center py-3">© VANS 2021 
 
+    </div>
 
 </footer>
 
