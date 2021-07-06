@@ -23,7 +23,9 @@ module.exports = (sequelize, DataTypes) => {
     meetingStatus: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    }
+    },
+    category_id: DataTypes.INTEGER,
+    host_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Meeting',
