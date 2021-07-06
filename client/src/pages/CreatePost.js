@@ -8,7 +8,7 @@ import '../pages/assets/Login.css';
 
 
 const CreatePost = () => {
-    const historty = useHistory()
+    const history = useHistory()
     const [formObject, setFormObject] = useState({
         postName: "",
         categoryId: "",
@@ -58,7 +58,7 @@ const CreatePost = () => {
                 dateTime: ""
             })
 
-            historty.push('/profile');
+            history.push('/profile');
 
         } catch (err) {
             console.log(err);

@@ -124,6 +124,8 @@ const Profile = () => {
                             publicId={state.user.profileImgPublicId}
                             width="300"
                             crop="scale"
+                            state={state}
+                            dispatch={dispatch}
                             border="rounded"
 
 
@@ -153,10 +155,8 @@ const Profile = () => {
 
                 <Col className="box2">
                     <div className="text-lg">Added</div>
-                    <Added className="testbox"
-                        handleSubmit={handleSubmit}
-
-                   
+                    {/* <Added className="testbox"
+                        handleSubmit={handleSubmit} /> */}
                 </Col>
             </Row>
             <Row>
