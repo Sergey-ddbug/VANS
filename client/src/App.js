@@ -29,11 +29,11 @@ const App = () => {
       }
     });
   }, [dispatch, history]);
-  // hellooooooooooooooooooooooooooooooooooooooooooooooooo
+
   const largeContainer = {
     height: '100vh'
   }
-  // hellooooooooooooooooooooooooooooooooooooooooooooooooo
+
   return (
     <div style={largeContainer} className="d-flex flex-column">
       <Header />
@@ -53,14 +53,13 @@ const App = () => {
 
           <Redirect to="/" />
         </Switch>
-        // hellooooooooooooooooooooooooooooooooooooooooooooooooo
+
       )}
       <Footer />
     </div >
 
-    // hellooooooooooooooooooooooooooooooooooooooooooooooooo
+
   );
-  // hellooooooooooooooooooooooooooooooooooooooooooooooooo
 };
 
 export default App;

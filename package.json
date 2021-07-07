@@ -1,6 +1,7 @@
 {
   "name": "MERN_with_Passport",
   "version": "1.0.0",
+  "homepage": "https://vans2021.herokuapp.com/",
   "private": true,
   "description": "",
   "main": "index.js",
