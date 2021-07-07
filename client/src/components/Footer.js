@@ -30,8 +30,8 @@ const Footer = () => <footer className="page-footer font-small blue pt-4">
         <h5 className="text-uppercase text-danger icons">We Use</h5>
         <ul>
           <a className="mr-1"><FaReact /></a>
-          <a className="ml-1 mr-1"><FaBootstrap /></a>
-          <a className="ml-1 mr-1"><FaVideo /></a>
+          <a className="mr-1 ml-1"><FaBootstrap /></a>
+          <a className="mr-1 ml-1"><FaVideo /></a>
           <a className="ml-1"><FaDatabase /></a>
         </ul>
       </div>
