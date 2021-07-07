@@ -15,7 +15,7 @@ document.head.appendChild(styleLink);
 const Home = () => (
   <>
     <div className="container-bg">
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -29,13 +29,13 @@ const Home = () => (
         }}
       >
         <source src={Background} type="video/mp4" />
-      </video>
+      </video> */}
       <Jumbotron />
-      {/* <d        className="flex-grow-1 container-bg"
-        style={{ margin: 0, width: "90%" }}
-      > */}
-      <Categories />
-      {/* </d> */}
+      <div className="flex-grow-1 "
+        style={{ margin: 20 }}
+      >
+        <Categories />
+      </div>
 
       {/* <Footer /> */}
     </div>

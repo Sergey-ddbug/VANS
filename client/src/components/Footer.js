@@ -1,40 +1,46 @@
-import React from "react";
-// const style = {
-//   // backgroundColor: "#F8F8F8",
-//   // borderTop: "1px solid #E7E7E7",
-//   // textAlign: "center",
-//   // padding: "20px",
+import React from "react"
+import { FaReact, FaBootstrap, FaVideo, FaDatabase} from "react-icons/fa";
+import '../pages/assets/Login.css';
 
-//   left: "0",
-//   bottom: "0",
-//   height: "60px",
-//   width: "100%",
-//   zIndex: 10,
-// };
-// const phantom = {
-//   display: "block",
-//   padding: "20px",
-//   height: "60px",
-//   width: "100%",
-//   zIndex: 10,
-// };
-// const mainDiv = {
-//   zIndex: "-1",
-//   position: "fixed",
-//   left: 0,
-//   bottom: 0,
-//   width: "0%",
-// };
+const Footer = () => <footer className="page-footer font-small blue pt-4">
+  <div className="container-fluid text-center text-md-left">
+    <div className="row">
+      <div className="col-md-6 mt-md-0 mt-3">
+        <h5 className="text-uppercase text-danger">Video Audio Networking Service</h5>
+        <p>Welcome to the VANS family. Learn the latest skills to reach your professional goals.
+        <p>Online video courses with new additions published every week.
+        </p>
+        </p>
+      </div>
 
-function Footer({ children }) {
-  return (
-    <div>
-      <div>© 2021 Copyright Text </div>
+
+      <hr className="clearfix w-100 d-md-none pb-0" />
+
+      <div className="col-md-3 mb-md-0 mb-3">
+        <h5 className="text-uppercase text-danger" >Our Team</h5>
+        <ul className="list-unstyled">
+          <li><a href="#!">Viktoriia Midor</a></li>
+          <li><a href="#!">Aaron Weiner </a></li>
+          <li><a href="#!">Nick Aisthorpe</a></li>
+          <li><a href="#!">Sergey Ishimov</a></li>
+        </ul>
+      </div>
+
+      <div className="col-md-3 mb-md-0 mb-3">
+        <h5 className="text-uppercase text-danger icons">We Use</h5>
+        <ul>
+          <a><FaReact/></a>
+          <a><FaBootstrap/></a>
+          <a><FaVideo/></a>
+          <a><FaDatabase/></a>
+          </ul>
+      </div>
     </div>
-    // <div style={mainDiv}>
-    //   <div style={phantom} />
-    //   <div style={style}>{children} Footer</div>
-    // </div>
-  );
-}
-export default Footer;
+  </div>
+  <div className="footer-copyright text-center py-3">© VANS 2021 
+
+    </div>
+
+</footer>
+
+export default Footer

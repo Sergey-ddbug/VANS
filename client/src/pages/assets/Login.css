@@ -16,12 +16,59 @@
   padding: 10px;
   margin-left: 1%;
 }
-/* .jumb {
+.jumb {
+  background-color: rgb(231, 229, 229);
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.categoriesConteiner {
   background-color: rgba(0, 0, 0, 0.205) !important;
-  width: 100%;
-} */
-/* .test3 {
-  background-color: rgba(0, 0, 0, 0.205) !important;
-  padding: 10px;
-  margin-left: 1%;
-} */
+  padding: 20px;
+}
+.test3 {
+  background-image: url(https://images.pexels.com/photos/3944406/pexels-photo-3944406.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.box1 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-left: 10%;
+}
+.box2 {
+  padding-top: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: rgba(0, 0, 0, 0.151) !important;
+}
+.profContainer {
+  background-image: url(https://images.pexels.com/photos/4397907/pexels-photo-4397907.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.loginpic {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.signuppic {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.text-lg {
+  font-size: 20px;
+}
+.footertest {
+  background-color: rgb(231, 229, 229);
+}
+.icons ul a {
+  justify-content: space-between;
+}

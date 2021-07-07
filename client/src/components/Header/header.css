@@ -1,7 +1,7 @@
 /*Desktop View*/
 .header {
   display: flex;
-  background: linear-gradient(#626164, #ffffff);
+  background: #333e5a;
   justify-content: space-between;
 
   align-items: center;
@@ -85,7 +85,7 @@
     grid-gap: 0px;
   }
   .nav-options.active {
-    background: linear-gradient(rgb(241, 238, 238) 0%, darkgray 50%);
+    background: #333e5a;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;

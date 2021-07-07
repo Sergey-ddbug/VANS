@@ -4,37 +4,29 @@
 //     up: async (queryInterface, Sequelize) => {
 //         await queryInterface.bulkInsert('Meeting', [
 //             {
-//                 meetingName: 'Nicks Meditation',
+//                 meetingName: 'Yoga with Aaron',
 //                 timeDate: "2021-07-07 04:00:00"
 //             },
 //             {
-//                 meetingName: 'Sergeys Meditation',
-//                 timeDate: "2021-07-07 04:00:00"
+//                 meetingName: 'Yoga with Nick',
+//                 timeDate: "2021-07-08 04:00:00"
 //             },
 //             {
-//                 meetingName: 'Viktorias Meditation',
-//                 timeDate: "2021-07-07 04:00:00"
+//                 meetingName: 'Yoga with Sergey',
+//                 timeDate: "2021-07-09 04:00:00"
 //             },
 //             {
-//                 meetingName: 'Aarons Meditation',
-//                 timeDate: "2021-07-07 04:00:00"
+//                 meetingName: 'Yoga with Vika',
+//                 timeDate: "2021-07-10 04:00:00"
 //             },
 //             {
-//                 meetingName: 'Nicks Yoga',
-//                 timeDate: "2021-07-07 04:00:00"
+//                 meetingName: 'Yoga with Caleb',
+//                 timeDate: "2021-07-11 04:00:00"
 //             },
 //             {
-//                 meetingName: 'Viktorias Yoga',
-//                 timeDate: "2021-07-07 04:00:00"
-//             },
-//             {
-//                 meetingName: 'Sergeys Yoga',
-//                 timeDate: "2021-07-07 04:00:00"
-//             },
-//             {
-//                 meetingName: 'Aarons Yoga',
-//                 timeDate: "2021-07-07 04:00:00"
-//             },
+//                 meetingName: 'Yoga with Zach',
+//                 timeDate: "2021-07-12 04:00:00"
+//             }
 //         ], {});
 //     },
 
