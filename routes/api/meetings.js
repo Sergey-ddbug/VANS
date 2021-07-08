@@ -98,14 +98,14 @@ router.get('/future/nonhost', async (req, res) => {
                         model: Category
 
                     },
-                        // {
-                        //     model: User,
-                        //     where: {
-                        //         id: {
-                        //             [Op.not]: req.user.id
-                        //         }
-                        //     },
-                        // }
+                    {
+                        model: User,
+                        // where: {
+                        //     id: {
+                        //         [Op.not]: req.user.id
+                        //     }
+                        // },
+                    }
                     ]
                 }
             ]
