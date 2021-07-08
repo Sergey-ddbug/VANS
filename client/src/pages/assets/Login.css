@@ -41,7 +41,7 @@
 .box1 {
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
 }
 .box2 {
   padding-top: 100px;
@@ -71,4 +71,7 @@
 }
 .icons ul a {
   justify-content: space-between;
+}
+.uploadBTN {
+  padding: 75rem;
 }
