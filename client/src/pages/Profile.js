@@ -135,11 +135,11 @@ const Profile = () => {
                         <ProfPic state={state} dispatch={dispatch} />
                     }
                 </Col>
-                <Col>
-                    <h2>
+                <Col style={{ marginTop: 120 }}>
+                    <h2> Name :
                         {state.user.first_name}
                     </h2>
-                    <h2>
+                    <h2> Email :
                         {state.user.email}
                     </h2>
                 </Col>
