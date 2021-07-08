@@ -1,12 +1,23 @@
-/* .ProfPic {
-  font-family: sans-serif;
-  text-align: center;
+@media (min-width: 992px) {
+  .flex-row-categories {
+    display: flex;
+    flex-direction: column; 
+  }
 }
-.signContainer {
-  padding-top: 150px;
-  padding-bottom: 150px;
-} */
 
-/* .container-bg {
-  background-color: rgb(210, 210, 230);
-} */
+@media (max-width: 875px) {
+  .categories-padding {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 555px) {
+  .post-column {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.bolder {
+  font-weight: bolder;
+}

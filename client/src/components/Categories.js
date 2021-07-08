@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../lib/API";
 import { Tab, Nav, Row, Col, Container } from "react-bootstrap";
+import { format } from "date-fns";
 
 
 function TabExampleVerticalTab() {
@@ -11,7 +12,6 @@ function TabExampleVerticalTab() {
         loadCategories();
         loadMeetings();
     }, []);
-
 
     function loadCategories() {
         API.Categories.getCategories()
@@ -31,10 +31,12 @@ function TabExampleVerticalTab() {
             .catch((err) => console.log("ERROR", err));
     }
 
-
-    function renderMeetings() {
-
+    function formatDate(date1) {
+        var date = new Date(date1);
+        var formattedDate = format(date, "MMM d H:mma");
+        return formattedDate
     }
+
 
 
     function handleJoinBtnClick(event) {
@@ -52,11 +54,10 @@ function TabExampleVerticalTab() {
             <ul>
                 <Container className="categoriesConteiner">
 
-
-                    <Tab.Container id="left-tabs-example" defaultActiveKey="all" >
-                        <Row>
-                            <Col sm={3}>
-                                <Nav variant="pills" className="flex-column">
+                    <Tab.Container id="left-tabs-example" className="categories-padding" defaultActiveKey="all" >
+                        <Row className="flex-column-home">
+                            <Col lg={3} sm={12} className="w-100">
+                                <Nav variant="pills" className="w-100 flex-row-categories">
                                     <Nav.Item>
                                         <Nav.Link eventKey="all">All</Nav.Link>
                                     </Nav.Item>
@@ -70,20 +71,18 @@ function TabExampleVerticalTab() {
                                 </Nav>
                             </Col>
 
-                            <Col sm={9}>
+                            <Col lg={9} sm={12}>
                                 <Tab.Content>
                                     <Tab.Pane eventKey="all">
                                         {
                                             (meetings.length > 0)
                                                 ?
                                                 (meetings.map(item => (
-                                                    <div data-id={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
-                                                        <h3>{item.meetingName}</h3>
-                                                        <p>{item.Category.category_name}</p>
-                                                        <p>{item.Users[0].first_name}</p>
-                                                        <p>{item.timeDate}</p>
-
-
+                                                    <div data-id={item.id} className="w-100 border d-flex flex-row justify-content-between mt-2 p-3 flex-wrap post-column categories-padding">
+                                                        <p className="mr-1 bolder">{item.meetingName}</p>
+                                                        <p className="mr-1 bolder">{item.Category.category_name}</p>
+                                                        <p className="mr-1 bolder">{item.Users[0].first_name}</p>
+                                                        <p className="mr-1 bolder">{formatDate(item.timeDate)}</p>
                                                         {item.isUserMeeting ? (
                                                             <button
                                                                 onClick={() => console.log('DO REMOVE')}
