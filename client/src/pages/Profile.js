@@ -155,8 +155,8 @@ const Profile = () => {
 
                 <Col className="box2">
                     <div className="text-lg">Added</div>
-                    {/* <Added className="testbox"
-                        handleSubmit={handleSubmit} /> */}
+                    <Added className="testbox"
+                        handleSubmit={handleUserSubmit} />
                 </Col>
             </Row>
             <Row>

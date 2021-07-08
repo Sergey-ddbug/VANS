@@ -76,6 +76,7 @@ router.get('/host', async (req, res) => {
 
 router.get('/future/nonhost', async (req, res) => {
     try {
+        console.log("REQQQQ", req)
         const userMeetingData = await User.findOne({
             where: {
                 id: req.user.id
@@ -97,18 +98,19 @@ router.get('/future/nonhost', async (req, res) => {
                         model: Category
 
                     },
-                    {
-                        model: User,
-                        where: {
-                            id: {
-                                [Op.not]: req.user.id
-                            }
-                        },
-                    }
+                        // {
+                        //     model: User,
+                        //     where: {
+                        //         id: {
+                        //             [Op.not]: req.user.id
+                        //         }
+                        //     },
+                        // }
                     ]
                 }
             ]
         })
+        console.log("USERDATAAAA", userMeetingData)
 
         res.json(userMeetingData)
 
