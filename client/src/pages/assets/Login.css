@@ -31,12 +31,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-left: 100px;
+  /* padding-left: 100px;
   padding-right: 100px;
   padding-top: 100px;
   padding-bottom: 100px;
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 10%; */
 }
 .box1 {
   padding-top: 50px;
@@ -74,4 +74,58 @@
 }
 .uploadBTN {
   padding: 75rem;
+}
+/* overlay for gallery */
+#gallery-card {
+  position: absolute;
+  display: none;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+.divHolder {
+  position: relative;
+}
+
+.modal-card {
+  /* display: none; */
+  position: absolute;
+  width: 45%;
+  top: 15%;
+  left: 50%;
+  height: 85%;
+  background-color: #f8f9fa;
+  z-index: 101;
+  transform: translate(-50%, -10%);
+  -ms-transform: translate(-50%, -10%);
+}
+
+.visual video,
+.visual img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid black;
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1.5rem;
+}
+
+.modal-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 900px) {
+  .modal-card {
+    width: 100%;
+    height: 100%;
+  }
 }
