@@ -4,7 +4,7 @@ import { Tab, Nav, Row, Col } from 'react-bootstrap'
 
 
 function TabExampleVerticalTab({ handleSubmit }) {
-  const [futureNonHost, setfutureNonHost] = useState([])
+  const [futureNonHost, setFutureNonHost] = useState([])
 
   useEffect(() => {
     loadFuture()
@@ -14,7 +14,7 @@ function TabExampleVerticalTab({ handleSubmit }) {
     API.Meetings.getFutureNonHost()
       .then(res => {
         console.log("SUCCESS", res)
-        setfutureNonHost(res.data.Meetings)
+        setFutureNonHost(res.data.Meetings)
       })
       .catch(err => console.log("ERROR", err));
   };
