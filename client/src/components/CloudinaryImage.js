@@ -3,6 +3,7 @@ import { Image } from 'cloudinary-react';
 import API from '../lib/API';
 import { useStoreContext } from '../store/store';
 import { SET_IMG_ID } from '../store/actions';
+import { setConstantValue } from 'typescript';
 
 export default function CloudinaryImage({ publicId, crop, width, state, dispatch }) {
 
@@ -14,7 +15,7 @@ export default function CloudinaryImage({ publicId, crop, width, state, dispatch
 
       dispatch({ type: SET_IMG_ID, profileImgPublicId: null });
     }
-  }
+  };
 
   return (
     <div className="d-flex flex-column justify-content-around align-items-center">
@@ -28,9 +29,10 @@ export default function CloudinaryImage({ publicId, crop, width, state, dispatch
         }}
       />
       <div className="mt-4 d-flex justify-content-center">
-        <button className="mr-2" >⇧</button>
-        <button onClick={deleteProfileImg}>🗑</button>
+        {/* <button className="mr-2" >⇧</button> */}
+        <button onClick={deleteProfileImg}>🗑 Delete</button>
       </div>
+
     </div>
   )
 }

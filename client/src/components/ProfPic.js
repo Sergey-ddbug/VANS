@@ -67,7 +67,7 @@ function ProfPic({ state, dispatch }) {
           }}
         />
       </div>
-      <button className="btn btn-danger btn-md mt-4" onClick={() => imageUploader.current.click()}>Upload</button>
+      <button className="btn btn-danger btn-md mt-4" onClick={() => imageUploader.current.click()}>⇧ Upload</button>
     </div>
   );
 }
