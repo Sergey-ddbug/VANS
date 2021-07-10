@@ -1,6 +1,7 @@
 {
   "name": "MERN_with_Passport",
   "version": "1.0.0",
+  "homepage": "https://vans2021.herokuapp.com/",
   "private": true,
   "description": "",
   "main": "index.js",
@@ -36,6 +37,7 @@
     "bootstrap": "^5.0.1",
     "bootstrap-icons": "^1.5.0",
     "cloudinary": "^1.26.1",
+    "date-fns": "^2.22.1",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "express-mysql-session": "^2.1.4",

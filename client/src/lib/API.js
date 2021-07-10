@@ -37,6 +37,7 @@ export default {
             return axios.post("/api/meetings/addAJoin", meetingData)
         },
         getFutureNonHost: function () {
+            console.log("SUCCESS")
             return axios.get("/api/meetings/future/nonhost")
         },
         getHostMeetings: function () {
