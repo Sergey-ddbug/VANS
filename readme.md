@@ -25,5 +25,12 @@ Users who want just to learn in a modern way will be able to browse through clas
 - Bootstrap
 - React.js
 - Twilio
-- MySQL
-  ????
+- SequelizeCLI
+- Express
+
+## Packages
+
+- Cloudinary
+- date-fns
+- react-responsive-animate-navbar
+- multer
