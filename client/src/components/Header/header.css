@@ -1,9 +1,10 @@
 /*Desktop View*/
 .header {
   display: flex;
-  background: #333e5a;
+  background-color: #333e5a;
   justify-content: space-between;
-
+  /* position: fixed; */
+  width: 100%;
   align-items: center;
   color: aliceblue;
   padding: 0px 0px;
@@ -85,7 +86,7 @@
     grid-gap: 0px;
   }
   .nav-options.active {
-    background: #333e5a;
+    background-color: #333e5a;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
