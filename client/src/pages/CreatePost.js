@@ -70,7 +70,7 @@ const CreatePost = () => {
     return (
         <Container className="flex-grow-1 postbox">
             <Row>
-                <Col>
+                <Col lg={26}>
                     <h1>Create Post</h1>
                     {errMsg && <p style={{ color: 'red' }}> {errMsg}</p>}
                     <form className="postbox2">
