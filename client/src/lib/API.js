@@ -46,6 +46,9 @@ export default {
         deleteMeeting: function (id) {
             return axios.delete("/api/meetings/delete/" + id)
         },
+        removeMeeting: function(id) {
+            return axios.delete("/api/meetings/removeMeeting", id)
+        }
     },
 
     Categories: {

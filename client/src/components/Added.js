@@ -19,16 +19,6 @@ function TabExampleVerticalTab({ handleSubmit }) {
       .catch(err => console.log("ERROR", err));
   };
 
-  function handleIdDelete(e) {
-    // e.preventDefault();
-    const confirmation = window.confirm("Are you sure?");
-    const meetingId = e.target.nextSibling.innerHTML;
-    if (confirmation) {
-      API.Meetings.deleteMeeting(meetingId);
-      loadHostMeetings();
-    }
-  };
-
   console.log(futureNonHost)
 
   return (
@@ -47,7 +37,7 @@ function TabExampleVerticalTab({ handleSubmit }) {
                       {/* <p>{item.Users[0].first_name}</p> */}
                       <p>{item.timeDate}</p>
                       <button onClick={(e) => handleSubmit(e, item)}>Join</button>
-                      <button onClick={(e) => handleIdDelete(e)}>Delete</button>
+                      <button>Delete</button>
                       <p style={{ display: 'none' }}>{item.id}</p>
                     </div>
                   ))}

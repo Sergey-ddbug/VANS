@@ -48,6 +48,15 @@ function TabExampleVerticalTab() {
             .catch(err => console.log("ERROR", err));
     }
 
+    // function handleRemoveMeeting(event) {
+    //     const meetingId = event.target.parentNode.dataset.id;
+    //     API.Meetings.removeMeeting({
+    //         id: meetingId,
+    //     })
+    //         .then(() => loadMeetings())
+    //         .catch(err => console.log("ERROR", err));
+    // }
+
 
     return (
         // <div className="test3">
@@ -87,7 +96,7 @@ function TabExampleVerticalTab() {
 
                                                 {item.isUserMeeting ? (
                                                     <button
-                                                        onClick={() => console.log('DO REMOVE')}
+                                                        // onClick={handleRemoveMeeting}
                                                         className="btn btn-danger btn-md mb-2"
                                                     >
                                                         Remove
