@@ -50,10 +50,7 @@ const Header = () => {
           </li>
           <li className="option" onClick={closeMobileMenu}>
 
-            <Link to="#" className="btn btn-link text-secondary">
-              <span className="text-white">UPCOMING</span>
 
-            </Link>
           </li>
 
           {!state.user ?
