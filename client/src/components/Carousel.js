@@ -79,7 +79,7 @@ export default function ControlledCarousel() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      {/* hidden modals */}
+      {/* PicOne hidden modals */}
       <div ref={galleryCardModal1} id="gallery-card">
         <div id="PicOne" className="modal-card">
           <div className="visual">

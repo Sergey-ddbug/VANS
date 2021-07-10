@@ -136,10 +136,10 @@ const Profile = () => {
                     }
                 </Col>
                 <Col style={{ marginTop: 120 }}>
-                    <h2> Name :
+                    <h2> Name : 
                         {state.user.first_name}
                     </h2>
-                    <h2> Email :
+                    <h2> Email : 
                         {state.user.email}
                     </h2>
                 </Col>
@@ -149,21 +149,21 @@ const Profile = () => {
             <Row>
                 <Col className="box2">
                     <div className="text-lg">Hosted</div>
-                    <Hosted
+                    <Hosted className="testbox"
                         handleSubmit={handleHostSubmit}
                     />
                 </Col>
             </Row>
             <Row>
 
-                <Col className="box2">
+                <Col className="box2 ">
                     <div className="text-lg">Added</div>
                     <Added className="testbox"
                         handleSubmit={handleUserSubmit} />
                 </Col>
             </Row>
             <Row>
-                <Col className="box2">
+                <Col className="box2 ">
                     {/* <div as='h2'>Video Chat</div> */}
                     {room && <Room roomName={roomName} room={room} handleLogout={handleLogout} />}
                     {/* {room && <TwilioTest roomName={roomName} room={room} />} */}

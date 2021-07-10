@@ -4,7 +4,7 @@ import { Tab, Nav, Row, Col } from 'react-bootstrap'
 
 
 function TabExampleVerticalTab({ handleSubmit }) {
-  const [futureNonHost, setfutureNonHost] = useState([])
+  const [futureNonHost, setFutureNonHost] = useState([])
 
   useEffect(() => {
     loadFuture()
@@ -14,7 +14,7 @@ function TabExampleVerticalTab({ handleSubmit }) {
     API.Meetings.getFutureNonHost()
       .then(res => {
         console.log("SUCCESS", res)
-        setfutureNonHost(res.data.Meetings)
+        setFutureNonHost(res.data.Meetings)
       })
       .catch(err => console.log("ERROR", err));
   };
@@ -27,17 +27,17 @@ function TabExampleVerticalTab({ handleSubmit }) {
         <Tab.Container id="left-tabs-example" defaultActiveKey="all">
           <Row>
 
-            <Col sm={9}>
+            <Col md={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="all">
                   {futureNonHost.map(item => (
-                    <div key={item.meetingId} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                    <div key={item.meetingId} className="w-100 border d-flex flex-column flex-md-row justify-content-between mt-3 mb-3 pl-3 pr-3">
                       <h3>{item.meetingName}</h3>
                       <p>{item.Category.category_name}</p>
                       {/* <p>{item.Users[0].first_name}</p> */}
                       <p>{item.timeDate}</p>
-                      <button onClick={(e) => handleSubmit(e, item)}>Join</button>
-                      <button>Delete</button>
+                      <button className="btn btn-danger btn-md justify-content-between mt-3 mb-3 pl-3 pr-3" onClick={(e) => handleSubmit(e, item)}>Join</button>
+                      <button className="btn btn-danger btn-md justify-content-between mt-3 mb-3 pl-3 pr-3">Delete</button>
                     </div>
                   ))}
                 </Tab.Pane>

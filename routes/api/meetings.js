@@ -43,6 +43,22 @@ router.post('/addAJoin', async (req, res) => {
     }
 });
 
+router.delete('/removeMeeting', async (req, res) => {
+    try {
+
+        console.log(req.body)
+        const userMeetingData = await UserMeeting.destroy({
+            MeetingId: req.body.MeetingId,
+            UserId: req.user.id
+        })
+
+        res.json(userMeetingData)
+    } catch (err) {
+        console.log(err)
+        res.status(422).json(err)
+    }
+});
+
 router.get('/host', async (req, res) => {
     try {
         const userMeetingData = await User.findOne({
@@ -180,5 +196,23 @@ router.get('/all', async (req, res) => {
         res.status(422).json(err)
     }
 });
+
+
+router.delete("/delete/:id", async (req, res) => {
+
+    try {
+        const meetingData = await Meeting.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+
+        res.status(200).json(meetingData);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;
