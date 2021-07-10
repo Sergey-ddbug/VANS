@@ -43,6 +43,9 @@ export default {
         getHostMeetings: function () {
             return axios.get("/api/meetings/host")
         },
+        deleteMeeting: function (id) {
+            return axios.delete("/api/meetings/delete/" + id)
+        },
     },
 
     Categories: {

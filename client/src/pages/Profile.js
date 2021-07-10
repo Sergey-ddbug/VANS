@@ -136,10 +136,10 @@ const Profile = () => {
                     }
                 </Col>
                 <Col style={{ marginTop: 120 }}>
-                    <h2> Name :
+                    <h2> Name : 
                         {state.user.first_name}
                     </h2>
-                    <h2> Email :
+                    <h2> Email : 
                         {state.user.email}
                     </h2>
                 </Col>

@@ -176,4 +176,21 @@ router.get('/all', async (req, res) => {
     }
 });
 
+
+router.delete("/delete/:id", async (req, res) => {
+
+    try {
+        const meetingData = await Meeting.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+
+        res.status(200).json(meetingData);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
