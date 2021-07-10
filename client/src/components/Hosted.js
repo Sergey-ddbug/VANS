@@ -6,7 +6,6 @@ import { Tab, Row, Col } from 'react-bootstrap'
 function TabExampleVerticalTab({ handleSubmit }) {
   const [hostMeetings, setHostMeetings] = useState([])
 
-
   useEffect(() => {
     loadHostMeetings()
   }, [])
