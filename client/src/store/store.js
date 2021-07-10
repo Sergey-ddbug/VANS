@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { LOGIN, LOGOUT, SET_USER, UNSET_USER, SET_IMG_ID } from './actions';
+import { LOGIN, LOGOUT, SET_USER, UNSET_USER, SET_IMG_ID, REMOVE_POST } from './actions';
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -34,7 +34,16 @@ const reducer = (state, action) => {
           ...state.user,
           profileImgPublicId: action.profileImgPublicId
         }
-      }
+      };
+
+    case REMOVE_POST:
+      return {
+        ...state,
+        meeting: {
+          ...state.meeting,
+          id: action.id
+        }
+      };
 
     default:
       return state;

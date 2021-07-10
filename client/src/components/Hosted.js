@@ -19,6 +19,16 @@ function TabExampleVerticalTab({ handleSubmit }) {
       .catch(err => console.log("ERROR", err));
   };
 
+  function handleIdDelete(e) {
+    // e.preventDefault();
+    const confirmation = window.confirm("Are you sure?");
+    const meetingId = e.target.nextSibling.innerHTML;
+    if (confirmation) {
+      API.Meetings.deleteMeeting(meetingId);
+      loadHostMeetings();
+    }
+  };
+
   return (
     <div>
       <ul>
