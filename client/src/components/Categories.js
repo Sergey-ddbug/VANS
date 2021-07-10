@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../lib/API";
 import { Tab, Nav, Row, Col, Container } from "react-bootstrap";
+import { format } from "date-fns";
 
 
 function TabExampleVerticalTab() {
@@ -11,7 +12,6 @@ function TabExampleVerticalTab() {
         loadCategories();
         loadMeetings();
     }, []);
-
 
     function loadCategories() {
         API.Categories.getCategories()
@@ -31,10 +31,12 @@ function TabExampleVerticalTab() {
             .catch((err) => console.log("ERROR", err));
     }
 
-
-    function renderMeetings() {
-
+    function formatDate(date1) {
+        var date = new Date(date1);
+        var formattedDate = format(date, "MMM d H:mma");
+        return formattedDate
     }
+
 
 
     function handleJoinBtnClick(event) {

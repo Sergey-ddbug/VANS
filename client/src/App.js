@@ -45,16 +45,16 @@ const App = () => {
           <Route exact path="/profile" component={Profile} />
         </Switch>
       ) : (
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/twilio" component={TwilioTest} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/twilio" component={TwilioTest} />
 
-            <Redirect to="/" />
-          </Switch>
+          <Redirect to="/" />
+        </Switch>
 
-        )}
+      )}
       <Footer />
     </div >
 
