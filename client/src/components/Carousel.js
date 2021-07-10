@@ -68,8 +68,8 @@ export default function ControlledCarousel() {
             <h3>Yoga Time</h3>
             <p>
               {" "}
-            Find your balance on the VANS.
-          </p>
+              Find your balance on the VANS.
+            </p>
             <Button variant="danger"
               onClick={() => {
                 galleryCardModal3.current.style.display = "block";
@@ -111,7 +111,7 @@ export default function ControlledCarousel() {
                   galleryCardModal1.current.style.display = "none";
                 }}>
                 &#10005;
-        </p>
+              </p>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function ControlledCarousel() {
               <ul>
                 <p>
                   Check out the newest classes in IT domain.
-          </p>
+                </p>
 
               </ul>
             </div>
@@ -150,7 +150,7 @@ export default function ControlledCarousel() {
                   // PicTwoModal.style.display = "none";
                 }}>
                 &#10005;
-        </p>
+              </p>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function ControlledCarousel() {
               <ul>
                 <p>
                   In this section you will find available classes based on your needs.
-          </p>
+                </p>
 
               </ul>
             </div>
@@ -190,7 +190,7 @@ export default function ControlledCarousel() {
                   // PicThreeModal.style.display = "none";
                 }}>
                 &#10005;
-        </p>
+              </p>
             </div>
           </div>
         </div>
