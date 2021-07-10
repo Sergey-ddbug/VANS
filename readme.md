@@ -10,8 +10,8 @@ https://vans2021.herokuapp.com/profile
 
 ## Introduction
 
-Our App is to help other learn new domain in a simple way. The app allows pick category and open own video room to present knowledge to participates.
-Users who want just to learn in a modern way will be able to browse through classes posted by others. Each user will have their profile page with picture and hosted/added classes.
+Our App is to help other learn new domain in a simple way. The app allows for you to pick a category and open your own video room to present knowledge to participants.
+Users who want to just learn in a modern way will be able to browse through classes posted by others. Each user will have their own profile page with a profile picture and hosted/added classes.
 
 ## Features
 
