@@ -65,13 +65,13 @@ function TabExampleVerticalTab() {
 
             <Tab.Container id="left-tabs-example" defaultActiveKey="all" >
                 <Row>
-                    <Col md={3}>
+                    <Col md={3} className="w-100 border d-flex flex-column flex-md-row justify-content-between mt-3 mb-3 pl-3 pr-3">
                         <Nav variant="pills" className="flex-column">
                             <Nav.Item>
                                 <Nav.Link eventKey="all">All</Nav.Link>
                             </Nav.Item>
                             {categories.map(item => (
-                                <Nav.Item >
+                                <Nav.Item  >
                                     <Nav.Link key={item.id} eventKey={item.id}>{item.category_name}</Nav.Link>
                                 </Nav.Item>
                             ))}
@@ -80,8 +80,8 @@ function TabExampleVerticalTab() {
                         </Nav>
                     </Col>
 
-                    <Col md={9}>
-                        <Tab.Content>
+                    <Col md={9} >
+                        <Tab.Content >
                             <Tab.Pane eventKey="all">
                                 {
                                     (meetings.length > 0)
@@ -101,13 +101,13 @@ function TabExampleVerticalTab() {
                                                     >
                                                         Remove
                                                     </button>) : (
-                                                    <button
-                                                        onClick={handleJoinBtnClick}
-                                                        className="btn btn-danger btn-md mb-2"
-                                                    >
-                                                        Add
-                                                    </button>
-                                                )}
+                                                        <button
+                                                            onClick={handleJoinBtnClick}
+                                                            className="btn btn-danger btn-md mb-2"
+                                                        >
+                                                            Add
+                                                        </button>
+                                                    )}
                                             </div>
                                         )))
                                         :
@@ -117,7 +117,7 @@ function TabExampleVerticalTab() {
                             {meetings.map(item => (
                                 //TODO: need to have code to check database to see if user is already linked to the meeting and if so ---return
                                 <Tab.Pane key={item.id} eventKey={item.CategoryId}>
-                                    <div data-id={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                                    <div data-id={item.id} className="w-100 border d-flex flex-column flex-md-row justify-content-between mt-3 mb-3 pl-3 pr-3">
                                         <h3>{item.meetingName}</h3>
                                         <p>{item.Category.category_name}</p>
                                         <p>{item.Users[0].first_name}</p>
