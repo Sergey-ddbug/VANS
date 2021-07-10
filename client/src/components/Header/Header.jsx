@@ -95,7 +95,7 @@ const Header = () => {
           }
         </ul>
       </div>
-      <ul className={click ? "nav-options active" : "nav-options"}>
+      <ul className={click ? "nav-options active zIndex" : "nav-options"}>
         <li className="option mobile-option" onClick={closeMobileMenu}>
           <Link to="/" className="btn btn-link text-secondary">
             <span className="text-white">HOME</span>
