@@ -104,8 +104,8 @@ const Header = () => {
         {state.user ?
           <>
             <li className="option mobile-option" onClick={closeMobileMenu}>
-              <Link to="#" className="btn btn-link text-secondary">
-                <span className="text-white">UPCOMING</span>
+              <Link to="/createpost" className="btn btn-link text-secondary">
+                <span className="text-white">CREATE POST</span>
               </Link>
             </li>
             <li className="option mobile-option" onClick={closeMobileMenu}>

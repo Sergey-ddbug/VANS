@@ -82,7 +82,7 @@ function TabExampleVerticalTab() {
                                                 <h3>{item.meetingName}</h3>
                                                 <p>{item.Category.category_name}</p>
                                                 <p>{item.Users[0].first_name}</p>
-                                                <p>{item.timeDate}</p>
+                                                <p>{formatDate(item.timeDate)}</p>
 
 
                                                 {item.isUserMeeting ? (
@@ -92,13 +92,13 @@ function TabExampleVerticalTab() {
                                                     >
                                                         Remove
                                                     </button>) : (
-                                                        <button
-                                                            onClick={handleJoinBtnClick}
-                                                            className="btn btn-danger btn-md mb-2"
-                                                        >
-                                                            Add
-                                                        </button>
-                                                    )}
+                                                    <button
+                                                        onClick={handleJoinBtnClick}
+                                                        className="btn btn-danger btn-md mb-2"
+                                                    >
+                                                        Add
+                                                    </button>
+                                                )}
                                             </div>
                                         )))
                                         :
@@ -112,7 +112,7 @@ function TabExampleVerticalTab() {
                                         <h3>{item.meetingName}</h3>
                                         <p>{item.Category.category_name}</p>
                                         <p>{item.Users[0].first_name}</p>
-                                        <p>{item.timeDate}</p>
+                                        <p>{formatDate(item.timeDate)}</p>
                                         {item.isUserMeeting
                                             ?
                                             (
