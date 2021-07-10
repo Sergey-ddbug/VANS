@@ -4,3 +4,4 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const LOADING = 'LOADING';
 export const SET_IMG_ID = "SET_IMG_ID"
+export const REMOVE_POST = "REMOVE_POST"

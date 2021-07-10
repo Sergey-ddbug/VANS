@@ -118,7 +118,7 @@ const Profile = () => {
     return (
         <Container className="profContainer">
             <Row>
-                <Col className="box1 img-rounded">
+                <Col className="box1">
                     {state.user.profileImgPublicId ?
                         <CloudinaryImage
                             publicId={state.user.profileImgPublicId}
@@ -135,32 +135,35 @@ const Profile = () => {
                         <ProfPic state={state} dispatch={dispatch} />
                     }
                 </Col>
+                <Col style={{ marginTop: 120 }}>
+                    <h2> Name : 
+                        {state.user.first_name}
+                    </h2>
+                    <h2> Email : 
+                        {state.user.email}
+                    </h2>
+                </Col>
 
             </Row>
-            {/* <Row>
-                <Col
-                    className="userinfo">VIKA
-                </Col>
-            </Row> */}
 
             <Row>
                 <Col className="box2">
                     <div className="text-lg">Hosted</div>
-                    <Hosted
+                    <Hosted className="testbox"
                         handleSubmit={handleHostSubmit}
                     />
                 </Col>
             </Row>
             <Row>
 
-                <Col className="box2">
+                <Col className="box2 ">
                     <div className="text-lg">Added</div>
-                    {/* <Added className="testbox"
-                        handleSubmit={handleSubmit} /> */}
+                    <Added className="testbox"
+                        handleSubmit={handleUserSubmit} />
                 </Col>
             </Row>
             <Row>
-                <Col className="box2">
+                <Col className="box2 ">
                     {/* <div as='h2'>Video Chat</div> */}
                     {room && <Room roomName={roomName} room={room} handleLogout={handleLogout} />}
                     {/* {room && <TwilioTest roomName={roomName} room={room} />} */}

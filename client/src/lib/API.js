@@ -37,11 +37,18 @@ export default {
             return axios.post("/api/meetings/addAJoin", meetingData)
         },
         getFutureNonHost: function () {
+            console.log("SUCCESS")
             return axios.get("/api/meetings/future/nonhost")
         },
         getHostMeetings: function () {
             return axios.get("/api/meetings/host")
         },
+        deleteMeeting: function (id) {
+            return axios.delete("/api/meetings/delete/" + id)
+        },
+        removeMeeting: function(id) {
+            return axios.delete("/api/meetings/removeMeeting", id)
+        }
     },
 
     Categories: {

@@ -19,23 +19,33 @@ function TabExampleVerticalTab({ handleSubmit }) {
       .catch(err => console.log("ERROR", err));
   };
 
+  function handleIdDelete(e) {
+    // e.preventDefault();
+    const confirmation = window.confirm("Are you sure?");
+    const meetingId = e.target.nextSibling.innerHTML;
+    if (confirmation) {
+      API.Meetings.deleteMeeting(meetingId);
+      loadHostMeetings();
+    }
+  };
+
   return (
     <div>
       <ul>
         <Tab.Container id="left-tabs-example" defaultActiveKey="all">
           <Row>
-            <Col sm={9}>
+            <Col md={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="all">
                   {hostMeetings.map(item => (
-                    <div key={item.id} className="w-100 border d-flex flex-row justify-content-between m-3 p-3">
+                    <div key={item.id} className="w-100 border d-flex flex-column flex-md-row justify-content-between mt-3 mb-3 pl-3 pr-3">
                       <h3>{item.meetingName}</h3>
                       <p>{item.Category.category_name}</p>
                       <p>{item.Users[0].first_name}</p>
                       <p>{item.timeDate}</p>
 
-                      <button className="btn btn-danger btn-md" onClick={(e) => handleSubmit(e, item)}>Join</button>
-                      <button className="btn btn-danger btn-md">Delete</button>
+                      <button className="btn btn-danger btn-md justify-content-between mt-3 mb-3 pl-3 pr-3" onClick={(e) => handleSubmit(e, item)}>Join</button>
+                      <button className="btn btn-danger btn-md justify-content-between mt-3 mb-3 pl-3 pr-3">Delete</button>
 
                     </div>
                   ))}

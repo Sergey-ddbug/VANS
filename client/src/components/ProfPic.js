@@ -36,12 +36,7 @@ function ProfPic({ state, dispatch }) {
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "left",
-        justifyContent: "left"
-      }}
+      className="d-flex flex-column justify-content-around align-items-center"
     >
       <input
         type="file"
@@ -49,27 +44,30 @@ function ProfPic({ state, dispatch }) {
         onChange={handleImageUpload}
         ref={imageUploader}
         style={{
-          display: "none"
+          display: "none",
+          borderRadius: "90px"
         }}
       />
       <div
         style={{
           height: "200px",
           width: "200px",
-          border: "1px dashed black"
+          border: "1px dashed black",
+          borderRadius: "90px"
         }}
-        // onClick={() => imageUploader.current.click()}
+      // onClick={() => imageUploader.current.click()}
       >
         <img
           ref={uploadedImage}
           style={{
             width: "100%",
             height: "100%",
-            position: "acsolute"
+            position: "acsolute",
+            borderRadius: "90px"
           }}
         />
       </div>
-      <button onClick={() => imageUploader.current.click()}>Upload Profile Picture</button>
+      <button className="btn btn-danger btn-md mt-4" onClick={() => imageUploader.current.click()}>⇧ Upload</button>
     </div>
   );
 }

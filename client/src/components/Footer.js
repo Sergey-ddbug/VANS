@@ -1,7 +1,7 @@
 import React from "react"
 import { FaReact, FaBootstrap, FaVideo, FaDatabase } from "react-icons/fa";
 import '../pages/assets/Login.css';
-
+ 
 const Footer = () => <footer className="page-footer font-small blue pt-4">
   <div className="container-fluid text-center text-md-left">
     <div className="row">
@@ -19,10 +19,10 @@ const Footer = () => <footer className="page-footer font-small blue pt-4">
       <div className="col-md-3 mb-md-0 mb-3">
         <h5 className="text-uppercase text-danger" >Our Team</h5>
         <ul className="list-unstyled">
-          <li><a href="#!">Viktoriia Midor</a></li>
-          <li><a href="#!">Aaron Weiner </a></li>
-          <li><a href="#!">Nick Aisthorpe</a></li>
-          <li><a href="#!">Sergey Ishimov</a></li>
+          <li><a href="https://github.com/vmidor">Viktoriia Midor</a></li>
+          <li><a href="https://github.com/aaronweiner2016">Aaron Weiner </a></li>
+          <li><a href="https://github.com/naisthorpe">Nick Aisthorpe</a></li>
+          <li><a href="https://github.com/Sergey-ddbug">Sergey Ishimov</a></li>
         </ul>
       </div>
 
