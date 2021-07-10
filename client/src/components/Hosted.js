@@ -45,8 +45,8 @@ function TabExampleVerticalTab({ handleSubmit }) {
                       <p>{item.timeDate}</p>
 
                       <button className="btn btn-danger btn-md justify-content-between mt-3 mb-3 pl-3 pr-3" onClick={(e) => handleSubmit(e, item)}>Join</button>
-                      <button className="btn btn-danger btn-md justify-content-between mt-3 mb-3 pl-3 pr-3">Delete</button>
-
+                      <button className="btn btn-danger btn-md justify-content-between mt-3 mb-3 pl-3 pr-3" onClick={(e) => handleIdDelete(e)}>Delete</button>
+                      <p style={{ display: 'none' }}>{item.id}</p>
                     </div>
                   ))}
                 </Tab.Pane>
