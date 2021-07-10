@@ -52,6 +52,11 @@ router.get('/host', async (req, res) => {
             include: [
                 {
                     model: Meeting,
+                    where: {
+                        timeDate: {
+                            [Op.gte]: new Date()
+                        }
+                    },
                     through: {
                         where: {
                             host: true
